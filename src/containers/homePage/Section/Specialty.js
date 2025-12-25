@@ -19,56 +19,48 @@ import { faBed } from '@fortawesome/free-solid-svg-icons';
 import { faMedkit } from '@fortawesome/free-solid-svg-icons';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FormattedMessage } from 'react-intl';
-// Import css files
+import "./Specialty.scss"
 import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 //import picture
 import specialtyImg from '../../../assets/Specialty/CoXuongKhop.jpg';
 import specialtyImg2 from '../../../assets/Specialty/tieu-hoa.png';
 class Specialty extends Component {
 
     render() {
-        let settings = {
-            dots: true,
-            infinite: true,
-            speed: 500,
-            slidesToShow: 4,
-            slidesToScroll: 1,
-        };
-
+        let settings = this.props.settings
+        console.log('Check setting:', settings)
 
         return (
-            <div className="section-specialty" >
-                <div className="Specialty-container" >
-                    <div className='Specialty-header' >
+            <div className="section-share section-specialty" >
+                <div className="section-container" >
+                    <div className='section-header' >
                         <span className='title-section' >Chuyên khoa phổ biến</span>
                         <button className='btn-section'>Xem thêm</button>
                     </div>
-                    <div className='Specialty-body'>
+                    <div className='section-body'>
                         <Slider {...settings}>
-                            <div className='Specialty-customize' >
+                            <div className='section-customize' >
                                 <div src={specialtyImg} className='bg-img' />
                                 <div>Cơ xương khớp 1</div>
                             </div>
                             {/* <div className='img-customize img-1'><h3>1</h3></div> */}
-                            <div className='Specialty-customize' >
+                            <div className='section-customize' >
                                 <div src={specialtyImg} className='bg-img' />
                                 <div>Cơ xương khớp 2</div>
                             </div>
-                            <div className='Specialty-customize' >
+                            <div className='section-customize' >
                                 <div src={specialtyImg2} className='bg-img' />
                                 <div>Tiêu Hóa</div>
                             </div>
-                            <div className='Specialty-customize' >
+                            <div className='section-customize' >
                                 <div src={specialtyImg} className='bg-img' />
                                 <div>Cơ xương khớp 4</div>
                             </div>
-                            <div className='Specialty-customize' >
+                            <div className='section-customize' >
                                 <div src={specialtyImg} className='bg-img' />
                                 <div>Cơ xương khớp 5</div>
                             </div>
-                            <div className='Specialty-customize' >
+                            <div className='section-customize' >
                                 <div src={specialtyImg} className='bg-img' />
                                 <div>Cơ xương khớp 6</div>
                             </div>

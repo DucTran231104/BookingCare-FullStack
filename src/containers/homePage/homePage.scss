@@ -13,8 +13,6 @@
     }
 }
 
-
-
 .slick-next {
     border: 2px solid #d7d7d7 !important;
     right: -10px !important;
@@ -31,4 +29,77 @@
 .slick-next:before {
     font-family: fontawesome !important;
     color: red !important;
+}
+
+.section-specialty {
+    padding-bottom: 60px;
+    margin-top: 100px;
+
+    .section-body {
+        .slick-list {
+            margin: 0 -5px;
+        }
+
+        .slick-slide>div {
+            padding: 0 5px;
+        }
+
+        .section-customize {
+            text-align: center;
+
+            .bg-img {
+                background: url('../../assets/Specialty/CoXuongKhop.jpg');
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-color: #eee;
+                aspect-ratio: 4 / 3;
+                // border: 1px solid rgb(60, 0, 255);
+            }
+        }
+    }
+}
+
+.section-share {
+    &.section-specialty {
+        position: relative;
+        overflow: visible;
+        background: #eeeeee;
+    }
+
+    .section-container {
+        margin: 0 100px;
+        display: flex;
+        flex-direction: column;
+
+        .section-header {
+            height: 60px;
+            margin-bottom: 30px;
+            padding-top: 30px;
+
+            .title-section {
+                font-weight: bold;
+                font-size: 22px;
+            }
+
+            .btn-section {
+                float: right;
+                display: block;
+                padding: 5px 10px;
+                border: none;
+                outline: none;
+                font-size: 15px;
+                cursor: pointer;
+                color: black;
+                background: #f5f5f5;
+                text-transform: uppercase;
+
+
+                &:hover {
+                    color: white;
+                    background: #4a90e2;
+                }
+            }
+        }
+    }
 }

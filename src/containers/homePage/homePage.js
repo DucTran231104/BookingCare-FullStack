@@ -5,14 +5,26 @@ import Specialty from './Section/Specialty';
 import MedicalFacility from './Section/MedicalFacility';
 import './homePage.scss';
 
+// Import css files
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 class homePage extends Component {
 
     render() {
+        let settings = {
+            dots: true,
+            infinite: true,
+            speed: 500,
+            slidesToShow: 4,
+            slidesToScroll: 1,
+        };
         return (
             <div>
                 <HomeHeader />
-                <Specialty />
-                <MedicalFacility />
+                <Specialty settings={settings} />
+                <MedicalFacility settings={settings} />
             </div>
         );
     }
