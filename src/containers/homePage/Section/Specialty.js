@@ -39,29 +39,29 @@ class Specialty extends Component {
                     </div>
                     <div className='section-body'>
                         <Slider {...settings}>
-                            <div className='section-customize' >
-                                <div src={specialtyImg} className='bg-img' />
+                            <div className='section-customize ' >
+                                <div className='bg-img section-img-specialty' />
                                 <div>Cơ xương khớp 1</div>
                             </div>
                             {/* <div className='img-customize img-1'><h3>1</h3></div> */}
                             <div className='section-customize' >
-                                <div src={specialtyImg} className='bg-img' />
+                                <div className='bg-img section-img-specialty' />
                                 <div>Cơ xương khớp 2</div>
                             </div>
                             <div className='section-customize' >
-                                <div src={specialtyImg2} className='bg-img' />
+                                <div className='bg-img section-img-specialty' />
                                 <div>Tiêu Hóa</div>
                             </div>
                             <div className='section-customize' >
-                                <div src={specialtyImg} className='bg-img' />
+                                <div className='bg-img section-img-specialty' />
                                 <div>Cơ xương khớp 4</div>
                             </div>
                             <div className='section-customize' >
-                                <div src={specialtyImg} className='bg-img' />
+                                <div className='bg-img section-img-specialty' />
                                 <div>Cơ xương khớp 5</div>
                             </div>
                             <div className='section-customize' >
-                                <div src={specialtyImg} className='bg-img' />
+                                <div className='bg-img section-img-specialty' />
                                 <div>Cơ xương khớp 6</div>
                             </div>
                         </Slider>
