@@ -4,6 +4,7 @@ import HomeHeader from './homeHeader';
 import Specialty from './Section/Specialty';
 import MedicalFacility from './Section/MedicalFacility';
 import './homePage.scss';
+import OutstandingDoctor from './Section/outstandingDoctor';
 
 // Import css files
 import Slider from "react-slick";
@@ -25,6 +26,7 @@ class homePage extends Component {
                 <HomeHeader />
                 <Specialty settings={settings} />
                 <MedicalFacility settings={settings} />
+                <OutstandingDoctor settings={settings} />
             </div>
         );
     }

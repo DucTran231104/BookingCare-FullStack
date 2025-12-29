@@ -28,7 +28,6 @@ class Specialty extends Component {
 
     render() {
         let settings = this.props.settings
-        console.log('Check setting:', settings)
 
         return (
             <div className="section-share section-specialty" >

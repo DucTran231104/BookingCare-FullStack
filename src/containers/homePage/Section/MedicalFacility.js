@@ -10,7 +10,6 @@ class MedicalFacility extends Component {
 
     render() {
         let settings = this.props.settings
-        console.log('Check setting:', settings)
 
         return (
             <div className="section-share section-medical-facility" >
@@ -23,28 +22,28 @@ class MedicalFacility extends Component {
                         <Slider {...settings}>
                             <div className='section-customize' >
                                 <div className='bg-img section-img-medical-facility' />
-                                <div>Cơ xương khớp 1</div>
+                                <div>bệnh viện bạch mai</div>
                             </div>
                             {/* <div className='img-customize img-1'><h3>1</h3></div> */}
                             <div className='section-customize' >
                                 <div className='bg-img section-img-medical-facility' />
-                                <div>Cơ xương khớp 2</div>
+                                <div>bệnh viện bạch mai2</div>
                             </div>
                             <div className='section-customize' >
                                 <div className='bg-img section-img-medical-facility' />
-                                <div>Tiêu Hóa</div>
+                                <div>bệnh viện bạch mai3</div>
                             </div>
                             <div className='section-customize' >
                                 <div className='bg-img section-img-medical-facility' />
-                                <div>Cơ xương khớp 4</div>
+                                <div>bệnh viện bạch mai 4</div>
                             </div>
                             <div className='section-customize' >
                                 <div className='bg-img section-img-medical-facility' />
-                                <div>Cơ xương khớp 5</div>
+                                <div>bệnh viện bạch mai 5</div>
                             </div>
                             <div className='section-customize' >
                                 <div className='bg-img section-img-medical-facility' />
-                                <div>Cơ xương khớp 6</div>
+                                <div>bệnh viện bạch mai 6</div>
                             </div>
                         </Slider>
                     </div>
