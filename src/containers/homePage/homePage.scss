@@ -33,7 +33,6 @@
 
 .section-share {
     padding-bottom: 60px;
-    // margin-top: 100px;
 
     .section-body {
         .slick-list {
@@ -107,8 +106,37 @@
     }
 
     &.section-about {
-        border: 1px solid red;
-        height: 200px;
+        height: 500px;
+        padding: 0 100px;
+        border-top: 2px solid #f5f5f5;
+        border-bottom: 2px solid #f5f5f5;
+
+        .section-about-header {
+            padding: 20px 10px;
+            font-size: 22px;
+            font-weight: 600;
+        }
+
+        .section-about-content {
+            display: flex;
+            gap: 15px;
+            width: 100%;
+
+            .content-left {
+                width: 60%;
+            }
+
+            .content-right {
+                width: 40%;
+
+                p {
+                    text-align: justify;
+                    font-style: italic;
+                    padding-top: 15px;
+                }
+            }
+
+        }
     }
 
 
@@ -160,9 +188,11 @@
 
 .section-home-footer {
     text-align: center;
-    padding: top 8px;
+    height: 60px;
 
     a {
         text-decoration: unset;
     }
+
+
 }
