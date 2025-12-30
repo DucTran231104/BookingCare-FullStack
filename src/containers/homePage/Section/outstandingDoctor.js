@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import './OutstandingDoctor.scss';
+import './outstandingDoctor.scss';
 // Old way (v4.7.0)
 import 'font-awesome/css/font-awesome.min.css';
 import Slider from "react-slick";

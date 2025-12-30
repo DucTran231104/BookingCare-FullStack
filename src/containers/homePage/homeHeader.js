@@ -30,7 +30,6 @@ class homeHeader extends Component {
         // alert("Change language to: " + language);
         //fire redux even: actions
         this.props.changeLanguageAppRedux(language);
-        console.log("check change language: ", this.props.changeLanguageAppRedux(language));
     }
     render() {
         let language = this.props.language;
@@ -196,7 +195,6 @@ const mapStateToProps = state => {
     return {
         isLoggedIn: state.user.isLoggedIn,
         language: state.app.language,
-        //inject    
     };
 };
 
