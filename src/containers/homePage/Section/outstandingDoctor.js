@@ -4,24 +4,9 @@ import { connect } from 'react-redux';
 import './outstandingDoctor.scss';
 // Old way (v4.7.0)
 import 'font-awesome/css/font-awesome.min.css';
-
-// <i className="fa fa-user"></i>
-
-// New way (v5)
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser } from '@fortawesome/free-solid-svg-icons';
-// <FontAwesomeIcon icon={faUser} />
-import { faTooth } from '@fortawesome/free-solid-svg-icons';
-
-import { faHospital } from '@fortawesome/free-solid-svg-icons';
-import { faMobile } from '@fortawesome/free-solid-svg-icons';
-import { faBed } from '@fortawesome/free-solid-svg-icons';
-import { faMedkit } from '@fortawesome/free-solid-svg-icons';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import { FormattedMessage } from 'react-intl';
 import "./outstandingDoctor.scss"
 import Slider from "react-slick";
-class outstandingDoctor extends Component {
+class OutstandingDoctor extends Component {
 
     render() {
         let settings = this.props.settings
@@ -34,7 +19,7 @@ class outstandingDoctor extends Component {
                     </div>
                     <div className='section-body'>
                         <Slider {...settings}>
-                            <div className='section-customize ' >
+                            <div className='section-customize customize-outstanding-doctor' >
                                 <div className="outer-bg">
                                     <div className='bg-img section-img-outstanding-doctor' />
                                 </div>
@@ -43,7 +28,7 @@ class outstandingDoctor extends Component {
                                     <div>Răng hàm mặt</div>
                                 </div>
                             </div>
-                            <div className='section-customize' >
+                            <div className='section-customize customize-outstanding-doctor' >
                                 <div className="outer-bg">
                                     <div className='bg-img section-img-outstanding-doctor' />
                                 </div>
@@ -52,7 +37,7 @@ class outstandingDoctor extends Component {
                                     <div>Răng hàm mặt</div>
                                 </div>
                             </div>
-                            <div className='section-customize' >
+                            <div className='section-customize customize-outstanding-doctor' >
                                 <div className="outer-bg">
                                     <div className='bg-img section-img-outstanding-doctor' />
                                 </div>
@@ -61,7 +46,7 @@ class outstandingDoctor extends Component {
                                     <div>Răng hàm mặt</div>
                                 </div>
                             </div>
-                            <div className='section-customize' >
+                            <div className='section-customize customize-outstanding-doctor' >
                                 <div className="outer-bg">
                                     <div className='bg-img section-img-outstanding-doctor' />
                                 </div>
@@ -70,7 +55,7 @@ class outstandingDoctor extends Component {
                                     <div>Răng hàm mặt</div>
                                 </div>
                             </div>
-                            <div className='section-customize' >
+                            <div className='section-customize customize-outstanding-doctor' >
                                 <div className="outer-bg">
                                     <div className='bg-img section-img-outstanding-doctor' />
                                 </div>
@@ -79,7 +64,7 @@ class outstandingDoctor extends Component {
                                     <div>Răng hàm mặt</div>
                                 </div>
                             </div>
-                            <div className='section-customize' >
+                            <div className='section-customize customize-outstanding-doctor' >
                                 <div className="outer-bg">
                                     <div className='bg-img section-img-outstanding-doctor' />
                                 </div>
@@ -88,7 +73,7 @@ class outstandingDoctor extends Component {
                                     <div>Răng hàm mặt</div>
                                 </div>
                             </div>
-                            <div className='section-customize' >
+                            <div className='section-customize customize-outstanding-doctor' >
                                 <div className="outer-bg">
                                     <div className='bg-img section-img-outstanding-doctor' />
                                 </div>
@@ -119,4 +104,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(outstandingDoctor);
+export default connect(mapStateToProps, mapDispatchToProps)(OutstandingDoctor);

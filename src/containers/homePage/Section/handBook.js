@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import "./MedicalFacility.scss";
+import "./handBook.scss";
+import "./Specialty.scss"
 import Slider from "react-slick";
 
-class MedicalFacility extends Component {
+
+class HandBook extends Component {
 
     render() {
         let settings = this.props.settings
@@ -12,34 +14,34 @@ class MedicalFacility extends Component {
             <div className="section-share section-medical-facility" >
                 <div className="section-container" >
                     <div className='section-header' >
-                        <span className='title-section' >Chuyên khoa phổ biến</span>
+                        <span className='title-section' >Cẩm nang</span>
                         <button className='btn-section'>Xem thêm</button>
                     </div>
                     <div className='section-body'>
                         <Slider {...settings}>
                             <div className='section-customize' >
-                                <div className='bg-img section-img-medical-facility' />
+                                <div className='bg-img section-img-handbook' />
                                 <div>bệnh viện bạch mai</div>
                             </div>
                             {/* <div className='img-customize img-1'><h3>1</h3></div> */}
                             <div className='section-customize' >
-                                <div className='bg-img section-img-medical-facility' />
+                                <div className='bg-img section-img-handbook' />
                                 <div>bệnh viện bạch mai2</div>
                             </div>
                             <div className='section-customize' >
-                                <div className='bg-img section-img-medical-facility' />
+                                <div className='bg-img section-img-handbook' />
                                 <div>bệnh viện bạch mai3</div>
                             </div>
                             <div className='section-customize' >
-                                <div className='bg-img section-img-medical-facility' />
+                                <div className='bg-img section-img-handbook' />
                                 <div>bệnh viện bạch mai 4</div>
                             </div>
                             <div className='section-customize' >
-                                <div className='bg-img section-img-medical-facility' />
+                                <div className='bg-img section-img-handbook' />
                                 <div>bệnh viện bạch mai 5</div>
                             </div>
                             <div className='section-customize' >
-                                <div className='bg-img section-img-medical-facility' />
+                                <div className='bg-img section-img-handbook' />
                                 <div>bệnh viện bạch mai 6</div>
                             </div>
                         </Slider>
@@ -49,7 +51,6 @@ class MedicalFacility extends Component {
             </div >
         );
     }
-
 }
 
 const mapStateToProps = state => {
@@ -63,4 +64,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(MedicalFacility);
+export default connect(mapStateToProps, mapDispatchToProps)(HandBook);

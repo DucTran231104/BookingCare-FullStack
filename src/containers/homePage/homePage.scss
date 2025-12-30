@@ -50,6 +50,11 @@
             flex-direction: column;
             align-items: center;
 
+            &.customize-outstanding-doctor {
+                border: 1px solid #bbbbbb;
+                padding: 20px;
+            }
+
             .bg-img {
                 width: 100%;
                 height: 0;
@@ -72,6 +77,14 @@
 
                 &.section-img-outstanding-doctor {
                     background-image: url('../../assets/outstandingDoctor/image.png');
+                    width: 120px;
+                    height: 120px;
+                    padding-top: 0;
+                    border-radius: 50%;
+                }
+
+                &.section-img-handbook {
+                    background-image: url('../../assets/handBook/image.png');
                 }
             }
         }
@@ -127,5 +140,13 @@
                 }
             }
         }
+    }
+}
+
+.section-outstanding-doctor {
+    .outer-bg {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10px;
     }
 }
