@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import './OutstandingDoctor.scss';
 // Old way (v4.7.0)
 import 'font-awesome/css/font-awesome.min.css';
-import "./OutstandingDoctor.scss"
 import Slider from "react-slick";
 class OutstandingDoctor extends Component {
 

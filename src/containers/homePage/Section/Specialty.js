@@ -4,26 +4,8 @@ import { connect } from 'react-redux';
 import './Specialty.scss';
 // Old way (v4.7.0)
 import 'font-awesome/css/font-awesome.min.css';
-
-// <i className="fa fa-user"></i>
-
-// New way (v5)
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser } from '@fortawesome/free-solid-svg-icons';
-// <FontAwesomeIcon icon={faUser} />
-import { faTooth } from '@fortawesome/free-solid-svg-icons';
-
-import { faHospital } from '@fortawesome/free-solid-svg-icons';
-import { faMobile } from '@fortawesome/free-solid-svg-icons';
-import { faBed } from '@fortawesome/free-solid-svg-icons';
-import { faMedkit } from '@fortawesome/free-solid-svg-icons';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import { FormattedMessage } from 'react-intl';
 import "./Specialty.scss"
 import Slider from "react-slick";
-//import picture
-import specialtyImg from '../../../assets/Specialty/CoXuongKhop.jpg';
-import specialtyImg2 from '../../../assets/Specialty/tieu-hoa.png';
 class Specialty extends Component {
 
     render() {
