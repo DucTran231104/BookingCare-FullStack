@@ -33,7 +33,6 @@
 
 .section-share {
     padding-bottom: 60px;
-    // margin-top: 100px;
 
     .section-body {
         .slick-list {
@@ -49,6 +48,11 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+
+            &.customize-outstanding-doctor {
+                border: 1px solid #bbbbbb;
+                padding: 20px;
+            }
 
             .bg-img {
                 width: 100%;
@@ -72,6 +76,16 @@
 
                 &.section-img-outstanding-doctor {
                     background-image: url('../../assets/outstandingDoctor/image.png');
+                    width: 120px;
+                    height: 120px;
+                    padding-top: 0;
+                    border-radius: 50%;
+                }
+
+                &.section-img-handbook {
+                    background-image: url('../../assets/handBook/image.png');
+                    background-size: 100% auto;
+                    background-color: white;
                 }
             }
         }
@@ -89,6 +103,40 @@
         position: relative;
         overflow: visible;
         background: #eeeeee;
+    }
+
+    &.section-about {
+        height: 500px;
+        padding: 0 100px;
+        border-top: 2px solid #f5f5f5;
+        border-bottom: 2px solid #f5f5f5;
+
+        .section-about-header {
+            padding: 20px 10px;
+            font-size: 22px;
+            font-weight: 600;
+        }
+
+        .section-about-content {
+            display: flex;
+            gap: 15px;
+            width: 100%;
+
+            .content-left {
+                width: 60%;
+            }
+
+            .content-right {
+                width: 40%;
+
+                p {
+                    text-align: justify;
+                    font-style: italic;
+                    padding-top: 15px;
+                }
+            }
+
+        }
     }
 
 
@@ -128,4 +176,23 @@
             }
         }
     }
+}
+
+.section-outstanding-doctor {
+    .outer-bg {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+}
+
+.section-home-footer {
+    text-align: center;
+    height: 60px;
+
+    a {
+        text-decoration: unset;
+    }
+
+
 }
