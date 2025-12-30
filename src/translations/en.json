@@ -54,7 +54,8 @@
                 "header": "System Administrator",
                 "user-manage": "User manage",
                 "product-manage": "Package manage",
-                "register-package-group-or-account": "Register service package for group/account"
+                "register-package-group-or-account": "Register service package for group/account",
+                "user-redux": "User manage Redux"
             },
             "system-parameter": {
                 "header": "System-parameter"
