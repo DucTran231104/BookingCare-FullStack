@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import "./handBook.scss";
-import "./Specialty.scss"
+import "./HandBook.scss";
 import Slider from "react-slick";
 
 
