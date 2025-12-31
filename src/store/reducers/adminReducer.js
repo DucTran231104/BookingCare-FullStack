@@ -1,6 +1,9 @@
 import actionTypes from '../actions/actionTypes';
 
 const initialState = {
+    isLoadingGender: false,
+    isLoadingPosition: false,
+    isLoadingRole: false,
     genders: [],
     roles: [],
     positions: []
@@ -8,36 +11,64 @@ const initialState = {
 
 const adminReducer = (state = initialState, action) => {
     switch (action.type) {
+        case actionTypes.FETCH_GENDER_START:
+            return {
+                ...state,
+                isLoadingGender: true
+            }
+
         case actionTypes.FETCH_GENDER_SUCCESS:
             return {
                 ...state,
-                genders: action.data
+                genders: action.data,
+                isLoadingGender: false
             }
+
         case actionTypes.FETCH_GENDER_FAILED:
             return {
                 ...state,
-                genders: []
+                genders: [],
+                isLoadingGender: true
             }
+
+        case actionTypes.FETCH_POSITION_START:
+            return {
+                ...state,
+                isLoadingPosition: true
+            }
+
         case actionTypes.FETCH_POSITION_SUCCESS:
             return {
                 ...state,
-                positions: action.data
+                positions: action.data,
+                isLoadingPosition: false
             }
+
         case actionTypes.FETCH_POSITION_FAILED:
             return {
                 ...state,
-                positions: []
+                positions: [],
+                isLoadingPosition: true
             }
+
+        case actionTypes.FETCH_ROLE_START:
+            return {
+                ...state,
+                isLoadingRole: true
+            }
+
         case actionTypes.FETCH_ROLE_SUCCESS:
             return {
                 ...state,
-                roles: action.data
+                roles: action.data,
+                isLoadingRole: false
             }
+
         case actionTypes.FETCH_ROLE_FAILED:
             return {
                 ...state,
-                roles: []
-                //
+                roles: [],
+                isLoadingRole: true
             }
         default:
             return state;
