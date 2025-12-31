@@ -13,7 +13,12 @@ const initialState = {
     systemMenuPath: '/system/user-manage',
     contentOfConfirmModal: {
         ...initContentOfConfirmModal
-    }
+    },
+    //máy thêm
+    genders: [],
+    roles: [],
+    positions: []
+    //
 }
 
 const appReducer = (state = initialState, action) => {
@@ -39,6 +44,38 @@ const appReducer = (state = initialState, action) => {
                 ...state,
                 language: action.language,
 
+            }
+        //máy thêm
+        case actionTypes.FETCH_GENDER_SUCCESS:
+            return {
+                ...state,
+                genders: action.data
+            }
+        case actionTypes.FETCH_GENDER_FAILED:
+            return {
+                ...state,
+                genders: []
+            }
+        case actionTypes.FETCH_POSITION_SUCCESS:
+            return {
+                ...state,
+                positions: action.data
+            }
+        case actionTypes.FETCH_POSITION_FAILED:
+            return {
+                ...state,
+                positions: []
+            }
+        case actionTypes.FETCH_ROLE_SUCCESS:
+            return {
+                ...state,
+                roles: action.data
+            }
+        case actionTypes.FETCH_ROLE_FAILED:
+            return {
+                ...state,
+                roles: []
+                //
             }
         default:
             return state;

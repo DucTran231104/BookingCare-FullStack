@@ -49,5 +49,22 @@
             "handbook": "Bài đăng",
             "manage-handbook": "Quản lý bài đăng"
         }
+    },
+    "manage-user": {
+        "add": "Thêm mới người dùng",
+        "email": "email",
+        "password": "Mật Khẩu",
+        "first-name": "Họ",
+        "last-name": "Tên",
+        "phone-number": "Số điện thoại",
+        "address": "địa chỉ",
+        "gender": "giới tính",
+        "male": "Nam",
+        "female": "Nữ",
+        "position": "Vị trí",
+        "Choose": "chọn",
+        "roleId": "vai trò",
+        "image": "Ảnh đại diện",
+        "save": "lưu"
     }
 }
