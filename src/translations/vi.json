@@ -35,6 +35,19 @@
             "system-parameter": {
                 "header": "Tham số hệ thống"
             }
+        },
+        "admin": {
+            "manage-users": " người dùng",
+            "manage-doctors": "Quản lý bác sĩ",
+            "manage-admin": "Quản lý admin",
+            "crud": "CRUD user",
+            "crud-redux": "CRUD Redux",
+            "clinic": "Phòng khám",
+            "manage-clinic": "Quản lý phòng khám",
+            "specialty": "Chuyên kkhoa",
+            "manage-specialty": "Quản lý chuyên khoa",
+            "handbook": "Bài đăng",
+            "manage-handbook": "Quản lý bài đăng"
         }
     }
 }
