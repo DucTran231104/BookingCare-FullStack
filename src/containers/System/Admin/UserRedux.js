@@ -18,12 +18,35 @@ class UserRedux extends Component {
         this.props.fetchRole();
     }
 
+    componentDidUpdate(prevProps, prevState, snapShot) {
+        if (prevProps.genders !== this.props.genders) {
+            this.setState({
+                genderArr: this.props.genders
+            })
+        }
+        if (prevProps.positions !== this.props.positions) {
+            this.setState({
+                positionArr: this.props.positions
+            })
+        }
+        if (prevProps.roles !== this.props.roles) {
+            this.setState({
+                roleArr: this.props.roles
+            })
+        }
+    }
 
-    render(
-    ) {
-        let language = this.props.language
 
+    render() {
+        let { genderArr, positionArr, roleArr } = this.state;
+        let { genders, positions, roles, language } = this.props;
         const { intl } = this.props;
+
+        // Sử dụng state nếu có, nếu không thì dùng props từ Redux
+        let gendersData = genderArr || genders || [];
+        let positionsData = positionArr || positions || [];
+        let rolesData = roleArr || roles || [];
+
         return (
             <div className="user-redux-container">
                 <div className="title">User Redux</div>
@@ -59,11 +82,11 @@ class UserRedux extends Component {
                                 <label><FormattedMessage id="manage-user.gender" /></label>
                                 <select className="form-control">
                                     <option value="">{intl.formatMessage({ id: 'manage-user.Choose' })}...</option>
-                                    {this.props.genders && this.props.genders.length > 0 &&
-                                        this.props.genders.map((item, index) => {
+                                    {gendersData && gendersData.length > 0 &&
+                                        gendersData.map((item, index) => {
                                             return (
                                                 <option key={index} value={item.key}>
-                                                    {this.props.language === LANGUAGES.VI ? item.valueVi : item.valueEn}
+                                                    {language === LANGUAGES.VI ? item.valueVi : item.valueEn}
                                                 </option>
                                             )
                                         })
@@ -72,19 +95,13 @@ class UserRedux extends Component {
                             </div>
                             <div className="col-3">
                                 <label><FormattedMessage id="manage-user.position" /></label>
-
-                                {/* <select class="form-control">
-                                    <option selected><FormattedMessage id="manage-user.choose" /></option>
-                                    <option>...</option> */}
-
-
                                 <select className="form-control">
                                     <option value="">{intl.formatMessage({ id: 'manage-user.Choose' })}...</option>
-                                    {this.props.positions && this.props.positions.length > 0 &&
-                                        this.props.positions.map((item, index) => {
+                                    {positionsData && positionsData.length > 0 &&
+                                        positionsData.map((item, index) => {
                                             return (
                                                 <option key={index} value={item.keyMap}>
-                                                    {this.props.language === LANGUAGES.VI ? item.valueVi : item.valueEn}
+                                                    {language === LANGUAGES.VI ? item.valueVi : item.valueEn}
                                                 </option>
                                             )
                                         })
@@ -95,11 +112,11 @@ class UserRedux extends Component {
                                 <label><FormattedMessage id="manage-user.roleId" /></label>
                                 <select className="form-control">
                                     <option value="">{intl.formatMessage({ id: 'manage-user.Choose' })}...</option>
-                                    {this.props.roles && this.props.roles.length > 0 &&
-                                        this.props.roles.map((item, index) => {
+                                    {rolesData && rolesData.length > 0 &&
+                                        rolesData.map((item, index) => {
                                             return (
                                                 <option key={index} value={item.keyMap}>
-                                                    {this.props.language === LANGUAGES.VI ? item.valueVi : item.valueEn}
+                                                    {language === LANGUAGES.VI ? item.valueVi : item.valueEn}
                                                 </option>
                                             )
                                         })
