@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import { connect } from 'react-redux';
 import * as actions from '../../../store/actions';
-import { getAllCodeService } from '../../../services/userService';
 import { LANGUAGES } from '../../../utils';
 
 class UserRedux extends Component {
