@@ -20,6 +20,17 @@ class UserRedux extends Component {
             previewImgURL: '',
             isOpen: false,
 
+            email: '',
+            password: '',
+            firstName: '',
+            lastName: '',
+            gender: '',
+            phoneNumber: '',
+            address: '',
+            position: '',
+            roleId: '',
+            avatar: '',
+
         }
     }
     componentDidMount() {
@@ -30,18 +41,24 @@ class UserRedux extends Component {
 
     componentDidUpdate(prevProps, prevState, snapShot) {
         if (prevProps.genders !== this.props.genders) {
+            let arrGenders = this.props.genders;
             this.setState({
-                genderArr: this.props.genders
+                genderArr: arrGenders,
+                gender: arrGenders && arrGenders.length > 0 ? arrGenders[0].key : ''
             })
         }
         if (prevProps.positions !== this.props.positions) {
+            let arrPositions = this.props.positions;
             this.setState({
-                positionArr: this.props.positions
+                positionArr: arrPositions,
+                position: arrPositions && arrPositions.length > 0 ? arrPositions[0].key : ''
             })
         }
         if (prevProps.roles !== this.props.roles) {
+            let arrRoles = this.props.roles;
             this.setState({
-                roleArr: this.props.roles
+                roleArr: arrRoles,
+                roleId: arrRoles && arrRoles.length > 0 ? arrRoles[0].key : ''
             })
         }
     }
@@ -52,7 +69,8 @@ class UserRedux extends Component {
         if (file) {
             const objectUrl = URL.createObjectURL(file);
             this.setState({
-                previewImgURL: objectUrl
+                previewImgURL: objectUrl,
+                avatar: file
             })
         }
     }
@@ -62,11 +80,50 @@ class UserRedux extends Component {
             isOpen: true
         })
     }
+    handleSaveUser = () => {
+        let isValid = this.checkValidateInput();
+        if (isValid === false) return;
+
+        //fire redux action
+        this.props.createNewUser({
+            email: this.state.email,
+            password: this.state.password,
+            firstName: this.state.firstName,
+            lastName: this.state.lastName,
+            address: this.state.address,
+            gender: this.state.gender,
+            roleId: this.state.roleId,
+            phoneNumber: this.state.phoneNumber,
+            positionId: this.state.position
+        })
+
+    }
+    onChangeInput = (event, id) => {
+        let copyState = { ...this.state }
+        copyState[id] = event.target.value;
+        this.setState({
+            ...copyState
+        })
+    }
+
+    checkValidateInput = () => {
+        let isValid = true;
+        let arrCheck = ['email', 'password', 'firstName', 'lastName', 'phoneNumber', 'address']
+        for (let i = 0; i < arrCheck.length; i++) {
+            if (!this.state[arrCheck[i]]) {
+                isValid = false;
+                alert('this input require: ' + arrCheck[i])
+                break;
+            }
+        }
+        return isValid;
+    }
 
 
     render() {
         let { genders, positions, roles, language, isLoadingGender, isLoadingPosition, isLoadingRole } = this.props;
         const { intl } = this.props;
+        let { email, password, firstName, lastName, gender, phoneNumber, address, position, roleId } = this.state;
 
         const isLoading = isLoadingGender || isLoadingPosition || isLoadingRole;
 
@@ -84,32 +141,53 @@ class UserRedux extends Component {
                             <div className="col-12"><FormattedMessage id="manage-user.add" /></div>
                             <div className="col-6">
                                 <label><FormattedMessage id="manage-user.email" /></label>
-                                <input className="form-control" type="email"></input>
+                                <input className="form-control" type="email"
+                                    value={email}
+                                    onChange={(event) => { this.onChangeInput(event, 'email') }}
+                                ></input>
                             </div>
                             <div className="col-6">
                                 <label><FormattedMessage id="manage-user.password" /></label>
-                                <input className="form-control" type="password"></input>
+                                <input className="form-control" type="password"
+                                    value={password}
+                                    onChange={(event) => { this.onChangeInput(event, 'password') }}
+                                ></input>
                             </div>
                             <div className="col-6">
                                 <label><FormattedMessage id="manage-user.first-name" /></label>
-                                <input className="form-control" type="text"></input>
+                                <input className="form-control" type="text"
+                                    value={firstName}
+                                    onChange={(event) => { this.onChangeInput(event, 'firstName') }}
+                                ></input>
                             </div>
                             <div className="col-6">
                                 <label><FormattedMessage id="manage-user.last-name" /></label>
-                                <input className="form-control" type="text"></input>
+                                <input className="form-control" type="text"
+                                    value={lastName}
+                                    onChange={(event) => { this.onChangeInput(event, 'lastName') }}
+                                ></input>
                             </div>
                             <div className="col-3">
                                 <label><FormattedMessage id="manage-user.phone-number" /></label>
-                                <input className="form-control" type="text"></input>
+                                <input className="form-control" type="text"
+                                    value={phoneNumber}
+                                    onChange={(event) => { this.onChangeInput(event, 'phoneNumber') }}
+                                ></input>
                             </div>
                             <div className="col-9">
                                 <label><FormattedMessage id="manage-user.address" /></label>
-                                <input className="form-control" type="text"></input>
+                                <input className="form-control" type="text"
+                                    value={address}
+                                    onChange={(event) => { this.onChangeInput(event, 'address') }}
+                                ></input>
                             </div>
                             <div className="col-3">
                                 <label><FormattedMessage id="manage-user.gender" /></label>
-                                <select className="form-control">
-                                    <option value="">{intl.formatMessage({ id: 'manage-user.Choose' })}...</option>
+                                <select className="form-control"
+                                    value={gender}
+                                    onChange={(event) => { this.onChangeInput(event, 'gender') }}
+                                >
+                                    <option disabled value="">{intl.formatMessage({ id: 'manage-user.Choose' })}...</option>
                                     {genders && genders.length > 0 &&
                                         genders.map((item, index) => {
                                             return (
@@ -123,12 +201,15 @@ class UserRedux extends Component {
                             </div>
                             <div className="col-3">
                                 <label><FormattedMessage id="manage-user.position" /></label>
-                                <select className="form-control">
-                                    <option value="">{intl.formatMessage({ id: 'manage-user.Choose' })}...</option>
+                                <select className="form-control"
+                                    value={position}
+                                    onChange={(event) => { this.onChangeInput(event, 'position') }}
+                                >
+                                    <option disabled value="">{intl.formatMessage({ id: 'manage-user.Choose' })}...</option>
                                     {positions && positions.length > 0 &&
                                         positions.map((item, index) => {
                                             return (
-                                                <option key={index} value={item.keyMap}>
+                                                <option key={index} value={item.key}>
                                                     {language === LANGUAGES.VI ? item.valueVi : item.valueEn}
                                                 </option>
                                             )
@@ -138,12 +219,15 @@ class UserRedux extends Component {
                             </div>
                             <div className="col-3">
                                 <label><FormattedMessage id="manage-user.roleId" /></label>
-                                <select className="form-control">
-                                    <option value="">{intl.formatMessage({ id: 'manage-user.Choose' })}...</option>
+                                <select className="form-control"
+                                    value={roleId}
+                                    onChange={(event) => { this.onChangeInput(event, 'roleId') }}
+                                >
+                                    <option value="" disabled>{intl.formatMessage({ id: 'manage-user.Choose' })}...</option>
                                     {roles && roles.length > 0 &&
                                         roles.map((item, index) => {
                                             return (
-                                                <option key={index} value={item.keyMap}>
+                                                <option key={index} value={item.key}>
                                                     {language === LANGUAGES.VI ? item.valueVi : item.valueEn}
                                                 </option>
                                             )
@@ -165,7 +249,10 @@ class UserRedux extends Component {
                                 </div>
                             </div>
                             <div className="col-12">
-                                <button className='btn btn-primary'><FormattedMessage id="manage-user.save" /></button>
+                                <button className='btn btn-primary'
+                                    onClick={() => this.handleSaveUser()}
+
+                                ><FormattedMessage id="manage-user.save" /></button>
                             </div>
                         </div>
                     </div>
@@ -200,7 +287,8 @@ const mapDispatchToProps = dispatch => {
     return {
         fetchGender: () => dispatch(actions.fetchGender()),
         fetchPosition: () => dispatch(actions.fetchPosition()),
-        fetchRole: () => dispatch(actions.fetchRole())
+        fetchRole: () => dispatch(actions.fetchRole()),
+        createNewUser: (data) => dispatch(actions.createNewUser(data))
     };
 };
 
