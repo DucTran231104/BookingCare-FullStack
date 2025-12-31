@@ -8,7 +8,8 @@
         "choose-doctor": "Choose doctor",
         "medical-examination-package": "Checkup package",
         "general-health-check": "General health check",
-        "support": "support"
+        "support": "support",
+        "welcome": "welcome"
     },
     "banner": {
         "flatform": "Medical facility platform",

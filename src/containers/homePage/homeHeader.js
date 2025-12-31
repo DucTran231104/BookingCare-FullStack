@@ -23,6 +23,7 @@ import { FormattedMessage } from 'react-intl';
 import { LANGUAGES } from '../../utils';
 import LanguageUtils from '../../utils/LanguageUtils';
 import { changeLanguageApp } from '../../store/actions';
+import { useInsertionEffect } from 'react';
 
 class homeHeader extends Component {
 
@@ -33,7 +34,7 @@ class homeHeader extends Component {
     }
     render() {
         let language = this.props.language;
-        console.log("check language from redux: ", this.props.language);
+        console.log("check userInfo from redux: ", this.props.userInfo);
         return (
             <React.Fragment>
                 <div className='home-header-container'>
@@ -195,6 +196,7 @@ const mapStateToProps = state => {
     return {
         isLoggedIn: state.user.isLoggedIn,
         language: state.app.language,
+        userInfo: state.user.userInfo
     };
 };
 
