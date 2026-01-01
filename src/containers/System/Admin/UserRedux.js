@@ -6,6 +6,7 @@ import { LANGUAGES } from '../../../utils';
 import LoadingSpinner from '../../../components/LoadingSpinner/LoadingSpinner';
 import Lightbox from 'react-image-lightbox';
 import 'react-image-lightbox/style.css'; // This only needs to be imported once in your app
+import TableManageUser from './tableManageUser';
 
 import './UserRedux.scss'
 
@@ -59,6 +60,20 @@ class UserRedux extends Component {
             this.setState({
                 roleArr: arrRoles,
                 roleId: arrRoles && arrRoles.length > 0 ? arrRoles[0].key : ''
+            })
+        }
+        if (prevProps.listUsers !== this.props.listUsers) {
+            this.setState({
+                email: '',
+                password: '',
+                firstName: '',
+                lastName: '',
+                gender: '',
+                phoneNumber: '',
+                address: '',
+                position: '',
+                roleId: '',
+                avatar: '',
             })
         }
     }
@@ -248,15 +263,20 @@ class UserRedux extends Component {
                                     </div>
                                 </div>
                             </div>
-                            <div className="col-12">
+                            <div className="col-12 my-3">
                                 <button className='btn btn-primary'
                                     onClick={() => this.handleSaveUser()}
 
                                 ><FormattedMessage id="manage-user.save" /></button>
+
+
+                            </div>
+                            <div className="col-12 mb-5">
+                                <TableManageUser />
+
                             </div>
                         </div>
                     </div>
-
                 </div>
                 {this.state.isOpen === true &&
                     <Lightbox
@@ -279,7 +299,9 @@ const mapStateToProps = state => {
         language: state.app.language,
         isLoadingGender: state.admin.isLoadingGender,
         isLoadingPosition: state.admin.isLoadingPosition,
-        isLoadingRole: state.admin.isLoadingRole
+        isLoadingRole: state.admin.isLoadingRole,
+        listUsers: state.admin.users,
+
     };
 };
 
@@ -288,7 +310,9 @@ const mapDispatchToProps = dispatch => {
         fetchGender: () => dispatch(actions.fetchGender()),
         fetchPosition: () => dispatch(actions.fetchPosition()),
         fetchRole: () => dispatch(actions.fetchRole()),
-        createNewUser: (data) => dispatch(actions.createNewUser(data))
+        createNewUser: (data) => dispatch(actions.createNewUser(data)),
+        fetchUsersRedux: () => dispatch(actions.fetchAllUsers()),
+
     };
 };
 
