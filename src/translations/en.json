@@ -65,6 +65,7 @@
         "Choose": "Choose",
         "roleId": "RoleId",
         "image": "Avatar",
-        "save": "Save"
+        "save": "Save User",
+        "edit": "Edit User"
     }
 }

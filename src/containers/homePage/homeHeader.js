@@ -34,7 +34,6 @@ class homeHeader extends Component {
     }
     render() {
         let language = this.props.language;
-        console.log("check userInfo from redux: ", this.props.userInfo);
         return (
             <React.Fragment>
                 <div className='home-header-container'>

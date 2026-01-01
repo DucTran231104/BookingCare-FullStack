@@ -65,6 +65,7 @@
         "Choose": "chọn",
         "roleId": "vai trò",
         "image": "Ảnh đại diện",
-        "save": "lưu"
+        "save": "Lưu User",
+        "edit": "Sửa User"
     }
 }
