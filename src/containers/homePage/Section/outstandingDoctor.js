@@ -5,82 +5,65 @@ import './outstandingDoctor.scss';
 // Old way (v4.7.0)
 import 'font-awesome/css/font-awesome.min.css';
 import Slider from "react-slick";
+import * as actions from '../../../store/actions';
+import { LANGUAGES } from '../../../utils';
 class OutstandingDoctor extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            arrDoctors: []
+        }
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (prevProps.topDoctorsRedux !== this.props.topDoctorsRedux) {
+            this.setState({
+                arrDoctors: this.props.topDoctorsRedux
+            })
+        }
+    }
+
+    componentDidMount() {
+        this.props.loadTopDoctors();
+    }
 
     render() {
+        let { language } = this.props;
+        let arrDoctors = this.state.arrDoctors
         let settings = this.props.settings
         return (
             <div className="section-share section-outstanding-doctor" >
                 <div className="section-container" >
-                    <div className='section-header' >
+                    {/* <div className='section-header' >
                         <span className='title-section' >Bác sĩ nổi bật</span>
                         <button className='btn-section'>Xem thêm</button>
-                    </div>
+                    </div> */}
                     <div className='section-body'>
                         <Slider {...settings}>
-                            <div className='section-customize customize-outstanding-doctor' >
-                                <div className="outer-bg">
-                                    <div className='bg-img section-img-outstanding-doctor' />
-                                </div>
-                                <div className='position text-center'>
-                                    <div>PhD.Trần Thái Trọng Đức</div>
-                                    <div>Răng hàm mặt</div>
-                                </div>
-                            </div>
-                            <div className='section-customize customize-outstanding-doctor' >
-                                <div className="outer-bg">
-                                    <div className='bg-img section-img-outstanding-doctor' />
-                                </div>
-                                <div className='position text-center'>
-                                    <div>PhD.Trần Thái Trọng Đức 1</div>
-                                    <div>Răng hàm mặt</div>
-                                </div>
-                            </div>
-                            <div className='section-customize customize-outstanding-doctor' >
-                                <div className="outer-bg">
-                                    <div className='bg-img section-img-outstanding-doctor' />
-                                </div>
-                                <div className='position text-center'>
-                                    <div>PhD.Trần Thái Trọng Đức 2</div>
-                                    <div>Răng hàm mặt</div>
-                                </div>
-                            </div>
-                            <div className='section-customize customize-outstanding-doctor' >
-                                <div className="outer-bg">
-                                    <div className='bg-img section-img-outstanding-doctor' />
-                                </div>
-                                <div className='position text-center'>
-                                    <div>PhD.Trần Thái Trọng Đức 3</div>
-                                    <div>Răng hàm mặt</div>
-                                </div>
-                            </div>
-                            <div className='section-customize customize-outstanding-doctor' >
-                                <div className="outer-bg">
-                                    <div className='bg-img section-img-outstanding-doctor' />
-                                </div>
-                                <div className='position text-center'>
-                                    <div>PhD.Trần Thái Trọng Đức 4</div>
-                                    <div>Răng hàm mặt</div>
-                                </div>
-                            </div>
-                            <div className='section-customize customize-outstanding-doctor' >
-                                <div className="outer-bg">
-                                    <div className='bg-img section-img-outstanding-doctor' />
-                                </div>
-                                <div className='position text-center'>
-                                    <div>PhD.Trần Thái Trọng Đức 5</div>
-                                    <div>Răng hàm mặt</div>
-                                </div>
-                            </div>
-                            <div className='section-customize customize-outstanding-doctor' >
-                                <div className="outer-bg">
-                                    <div className='bg-img section-img-outstanding-doctor' />
-                                </div>
-                                <div className='position text-center'>
-                                    <div>PhD.Trần Thái Trọng Đức 6</div>
-                                    <div>Răng hàm mặt</div>
-                                </div>
-                            </div>
+
+                            {arrDoctors && arrDoctors.length > 0 &&
+                                arrDoctors.map((item, index) => {
+                                    let imageBase64 = '';
+                                    if (item.image) {
+                                        imageBase64 = new Buffer(item.image, 'base64').toString('binary');
+                                    }
+                                    let nameVi = `${item.positionData.valueVi}, ${item.firstName} ${item.lastName}`;
+                                    let nameEn = `${item.positionData.valueEn}, ${item.lastName} ${item.firstName}`;
+                                    return (
+                                        <div className='section-customize customize-outstanding-doctor' key={index} >
+                                            <div className="outer-bg">
+                                                <div className='bg-img section-img-outstanding-doctor'
+                                                    style={{ backgroundImage: `url(${imageBase64})` }}
+                                                />
+                                            </div>
+                                            <div className='position text-center'>
+                                                <div>{language === LANGUAGES.VI ? nameVi : nameEn}</div>
+                                                <div>Răng hàm mặt</div>
+                                            </div>
+                                        </div>
+                                    )
+                                }
+                                )}
                         </Slider>
                     </div>
 
@@ -95,11 +78,13 @@ const mapStateToProps = state => {
     return {
         isLoggedIn: state.user.isLoggedIn,
         language: state.app.language,
+        topDoctorsRedux: state.admin.topDoctors
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
+        loadTopDoctors: () => dispatch(actions.fetchTopDoctor()),
     };
 };
 
