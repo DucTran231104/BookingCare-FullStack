@@ -205,7 +205,7 @@ export const fetchTopDoctor = () => {
 
     return async (dispatch, getState) => {
         try {
-            let res = await getTopDoctorHomeService(6);
+            let res = await getTopDoctorHomeService(10);
             if (res && res.errCode === 0) {
                 dispatch({
                     type: actionTypes.FETCH_TOP_DOCTORS_SUCCESS,

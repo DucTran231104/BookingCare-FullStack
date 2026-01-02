@@ -67,5 +67,11 @@
         "image": "Ảnh đại diện",
         "save": "Lưu User",
         "edit": "Sửa User"
+    },
+    "home-page": {
+        "outstanding-doctor": "Bác sĩ nổi bật",
+        "medical-facility": "Cơ sở y tế nổi bật",
+        "expert": "Chuyên gia y tế hàng đầu",
+        "handbook": "Sổ tay sức khỏe"
     }
 }

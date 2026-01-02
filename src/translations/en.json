@@ -67,5 +67,11 @@
         "image": "Avatar",
         "save": "Save User",
         "edit": "Edit User"
+    },
+    "home-page": {
+        "outstanding-doctor": "Outstanding Doctor",
+        "medical-facility": "Outstanding Medical Facility",
+        "expert": "Experienced Expert",
+        "handbook": "Health Handbook"
     }
 }

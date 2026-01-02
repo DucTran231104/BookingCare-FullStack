@@ -17,13 +17,17 @@ import "slick-carousel/slick/slick-theme.css";
 
 class homePage extends Component {
 
+    // handleAfterChange = (event, slick, currentSlide) => {
+    //     console.log("check current slide", currentSlide);
+    // }
     render() {
         let settings = {
             dots: true,
-            infinite: true,
+            infinite: false,
             speed: 500,
             slidesToShow: 4,
             slidesToScroll: 1,
+            // slickGoTo: this.handleAfterChange
         };
         return (
             <div>

@@ -27,9 +27,15 @@
 
 .slick-prev:before,
 .slick-next:before {
-    font-family: fontawesome !important;
+    font-family: fontAwesome !important;
     color: red !important;
 }
+
+.slick-disabled {
+    display: none !important;
+}
+
+
 
 .section-share {
     padding-bottom: 60px;
