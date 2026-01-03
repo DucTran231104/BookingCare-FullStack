@@ -24,6 +24,7 @@ import { LANGUAGES } from '../../utils';
 import LanguageUtils from '../../utils/LanguageUtils';
 import { changeLanguageApp } from '../../store/actions';
 import { useInsertionEffect } from 'react';
+import { withRouter } from 'react-router';
 
 class HomeHeader extends Component {
 
@@ -31,6 +32,11 @@ class HomeHeader extends Component {
         // alert("Change language to: " + language);
         //fire redux even: actions
         this.props.changeLanguageAppRedux(language);
+    }
+    returnToHome = () => {
+        if (this.props.history) {
+            this.props.history.push('/home');
+        }
     }
     render() {
         let language = this.props.language;
@@ -40,13 +46,14 @@ class HomeHeader extends Component {
                     <div className='home-header-content'>
                         <div className='home-header-content-left'>
                             <i className='fa fa-bars btn-bars'></i>
-                            <img src={logo} alt='logo' className='home-header-content-left-logo'></img>
+                            <img src={logo} alt='logo' className='home-header-content-left-logo'
+                                onClick={() => this.returnToHome()}></img>
 
                         </div>
 
                         <div className='home-header-content-center'>
                             <div className='child-content'>
-                                <div><b> <FormattedMessage id="home-header.speciality" /></b></div>
+                                <div><b> <FormattedMessage id="home-header.specialty" /></b></div>
                                 <div className='sub-title'>
                                     <FormattedMessage id="home-header.search-doctor" />
                                 </div>
@@ -205,4 +212,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomeHeader);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(HomeHeader));

@@ -1,7 +1,7 @@
 {
     "home-header": {
-        "speciality": "Medical speciality",
-        "search-doctor": "Find a doctor by speciality",
+        "specialty": "Medical specialty",
+        "search-doctor": "Find a doctor by specialty",
         "medical-facility": "Medical facility",
         "choose-hospital": "Choose hospital",
         "doctor": "Doctor",
