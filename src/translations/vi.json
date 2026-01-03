@@ -48,6 +48,9 @@
             "manage-specialty": "Quản lý chuyên khoa",
             "handbook": "Bài đăng",
             "manage-handbook": "Quản lý bài đăng"
+        },
+        "doctor": {
+            "manage-schedule": "Quản lý lịch khám của bác sĩ"
         }
     },
     "manage-user": {
@@ -66,7 +69,8 @@
         "roleId": "vai trò",
         "image": "Ảnh đại diện",
         "save": "Lưu User",
-        "edit": "Sửa User"
+        "edit": "Sửa User",
+        "email-invalid": "Email không đúng định dạng! Vui lòng nhập email hợp lệ (ví dụ: example@gmail.com)"
     },
     "home-page": {
         "outstanding-doctor": "Bác sĩ nổi bật",

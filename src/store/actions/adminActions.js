@@ -279,3 +279,11 @@ export const saveDetailDoctor = (data) => {
         }
     }
 }
+
+export const setEmailError = () => ({
+    type: actionTypes.SET_EMAIL_ERROR
+});
+
+export const clearEmailError = () => ({
+    type: actionTypes.CLEAR_EMAIL_ERROR
+});

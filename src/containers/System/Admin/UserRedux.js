@@ -86,6 +86,8 @@ class UserRedux extends Component {
                 userEditId: '',
                 previewImgURL: ''
             })
+            // Clear email error when reset form
+            this.props.clearEmailError();
         }
     }
 
@@ -111,6 +113,8 @@ class UserRedux extends Component {
             action: CRUD_ACTIONS.EDIT,
             userEditId: user.id
         })
+        // Clear email error when edit user
+        this.props.clearEmailError();
 
     }
 
@@ -171,10 +175,31 @@ class UserRedux extends Component {
     }
     onChangeInput = (event, id) => {
         let copyState = { ...this.state }
-        copyState[id] = event.target.value;
+        let value = event.target.value;
+
+        // Clear email error when user starts typing
+        if (id === 'email') {
+            this.props.clearEmailError();
+        }
+
+        copyState[id] = value;
         this.setState({
             ...copyState
         })
+    }
+
+    handleEmailBlur = (event) => {
+        const email = event.target.value;
+        if (email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                this.props.setEmailError();
+            } else {
+                this.props.clearEmailError();
+            }
+        } else {
+            this.props.clearEmailError();
+        }
     }
 
     checkValidateInput = () => {
@@ -187,6 +212,16 @@ class UserRedux extends Component {
                 break;
             }
         }
+
+        // Validate email format
+        if (isValid && this.state.email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(this.state.email)) {
+                isValid = false;
+                this.props.setEmailError();
+            }
+        }
+
         return isValid;
     }
 
@@ -215,8 +250,14 @@ class UserRedux extends Component {
                                 <input className="form-control" type="email"
                                     value={email}
                                     onChange={(event) => { this.onChangeInput(event, 'email') }}
+                                    onBlur={(event) => { this.handleEmailBlur(event) }}
                                     disabled={this.state.action === CRUD_ACTIONS.EDIT ? true : false}
                                 ></input>
+                                {this.props.hasEmailError && (
+                                    <div style={{ color: 'red', fontSize: '14px', marginTop: '5px' }}>
+                                        {intl.formatMessage({ id: 'manage-user.email-invalid' })}
+                                    </div>
+                                )}
                             </div>
                             <div className="col-6">
                                 <label><FormattedMessage id="manage-user.password" /></label>
@@ -369,6 +410,7 @@ const mapStateToProps = state => {
         isLoadingPosition: state.admin.isLoadingPosition,
         isLoadingRole: state.admin.isLoadingRole,
         listUsers: state.admin.users,
+        hasEmailError: state.admin.hasEmailError,
 
     };
 };
@@ -380,7 +422,9 @@ const mapDispatchToProps = dispatch => {
         fetchRole: () => dispatch(actions.fetchRole()),
         createNewUser: (data) => dispatch(actions.createNewUser(data)),
         fetchUsersRedux: () => dispatch(actions.fetchAllUsers()),
-        editUser: (data) => dispatch(actions.editUser(data))
+        editUser: (data) => dispatch(actions.editUser(data)),
+        setEmailError: () => dispatch(actions.setEmailError()),
+        clearEmailError: () => dispatch(actions.clearEmailError())
 
     };
 };

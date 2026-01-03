@@ -10,6 +10,7 @@ const initialState = {
     users: [],
     topDoctors: [],
     allDoctors: [],
+    hasEmailError: false,
 }
 
 const adminReducer = (state = initialState, action) => {
@@ -104,6 +105,16 @@ const adminReducer = (state = initialState, action) => {
             state.allDoctors = [];
             return {
                 ...state,
+            }
+        case actionTypes.SET_EMAIL_ERROR:
+            return {
+                ...state,
+                hasEmailError: true
+            }
+        case actionTypes.CLEAR_EMAIL_ERROR:
+            return {
+                ...state,
+                hasEmailError: false
             }
         default:
             return state;

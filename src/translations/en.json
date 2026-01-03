@@ -1,7 +1,7 @@
 {
     "home-header": {
-        "specialty": "Medical specialty",
-        "search-doctor": "Find a doctor by specialty",
+        "speciality": "Medical speciality",
+        "search-doctor": "Find a doctor by speciality",
         "medical-facility": "Medical facility",
         "choose-hospital": "Choose hospital",
         "doctor": "Doctor",
@@ -48,6 +48,9 @@
             "manage-specialty": "Manage specialty",
             "handbook": "Handbook",
             "manage-handbook": "Manage Handbook"
+        },
+        "doctor": {
+            "manage-schedule": "Manage Doctor's schedule"
         }
     },
     "manage-user": {
@@ -66,7 +69,8 @@
         "roleId": "RoleId",
         "image": "Avatar",
         "save": "Save User",
-        "edit": "Edit User"
+        "edit": "Edit User",
+        "email-invalid": "Invalid email format! Please enter a valid email (e.g., example@gmail.com)"
     },
     "home-page": {
         "outstanding-doctor": "Outstanding Doctor",
