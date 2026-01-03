@@ -22,7 +22,7 @@ class ManageDoctor extends Component {
             contentHTML: '',
             selectedDoctor: '',
             description: '',
-            listDoctors: []
+            listDoctors: [],
 
         }
     }
@@ -57,7 +57,25 @@ class ManageDoctor extends Component {
         );
     };
     handleSaveContentMarkdown = () => {
-        console.log('check state markdown', this.state);
+        const { selectedDoctor } = this.state;
+        if (!selectedDoctor) {
+            alert('Vui lòng chọn bác sĩ');
+            return;
+        }
+        let success = this.props.saveDetailDoctor({
+            contentHTML: this.state.contentHTML,
+            contentMarkdown: this.state.contentMarkdown,
+            description: this.state.description,
+            id: this.state.selectedDoctor.value
+        });
+        if (success) {
+            this.setState({
+                contentHTML: '',
+                contentMarkdown: '',
+                description: '',
+                selectedDoctor: '',
+            })
+        }
     }
     handleOnChangeDescription = (event) => {
         this.setState({
@@ -108,7 +126,8 @@ class ManageDoctor extends Component {
 
                 </div>
                 <div className='manage-doctor-editor'>
-                    <MdEditor style={{ height: '500px' }} renderHTML={text => mdParser.render(text)} onChange={this.handleEditorChange} />
+                    <MdEditor style={{ height: '500px' }} renderHTML={text => mdParser.render(text)} onChange={this.handleEditorChange}
+                        value={this.state.contentMarkdown} />
                 </div>
                 <button className='save-content-doctor'
                     onClick={() => this.handleSaveContentMarkdown()}>
@@ -132,6 +151,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         fetchAllDoctors: () => dispatch(actions.fetchAllDoctors()),
+        saveDetailDoctor: (data) => dispatch(actions.saveDetailDoctor(data))
     };
 };
 
