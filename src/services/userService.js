@@ -44,4 +44,8 @@ const getAllDoctors = () => {
 const saveDetailDoctorService = (data) => {
     return axios.post(`/api/save-info-doctors`, data)
 }
-export { handleLoginApi, getAllUsers, createNewUserService, deleteUserService, editUserService, getAllCodeService, getTopDoctorHomeService, getAllDoctors, saveDetailDoctorService }
+const getDetailInfoDoctorService = (inputId) => {
+    return axios.get(`/api/get-detail-doctors-by-id?id=${inputId}`)
+
+}
+export { handleLoginApi, getAllUsers, createNewUserService, deleteUserService, editUserService, getAllCodeService, getTopDoctorHomeService, getAllDoctors, saveDetailDoctorService, getDetailInfoDoctorService }

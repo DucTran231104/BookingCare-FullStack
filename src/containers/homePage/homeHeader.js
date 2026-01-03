@@ -25,7 +25,7 @@ import LanguageUtils from '../../utils/LanguageUtils';
 import { changeLanguageApp } from '../../store/actions';
 import { useInsertionEffect } from 'react';
 
-class homeHeader extends Component {
+class HomeHeader extends Component {
 
     changeLanguage = (language) => {
         // alert("Change language to: " + language);
@@ -94,101 +94,101 @@ class homeHeader extends Component {
                         </div>
                     </div>
                 </div>
+                {this.props.isShowBanner === true &&
+                    <div className='home-header-banner'>
+                        <div className='content-up'>
 
-                <div className='home-header-banner'>
-                    <div className='content-up'>
+                            <div className='title1'>
+                                <FormattedMessage id="banner.flatform"></FormattedMessage>
 
-                        <div className='title1'>
-                            <FormattedMessage id="banner.flatform"></FormattedMessage>
+                            </div>
 
+                            <div className='title2'>
+                                <FormattedMessage id="banner.health-care"></FormattedMessage>
+
+                            </div>
+
+                            <div className='search'>
+                                <section className='search-container'>
+                                    <label className='search-field'>
+                                        <FontAwesomeIcon icon={faSearch} />
+                                        <input type='text'
+                                            className='search-input'
+                                            placeholder={LanguageUtils.getMessageByKey("banner.search-placeholder", language)}
+                                        />
+                                    </label>
+
+                                </section>
+
+
+                            </div>
                         </div>
+                        <div className='content-down'>
+                            <div className='option'>
+                                <div className='option-child'>
+                                    <div className='icon-child'>
+                                        <FontAwesomeIcon icon={faHospital} />
+                                    </div>
+                                    <div className='text-child'>
 
-                        <div className='title2'>
-                            <FormattedMessage id="banner.health-care"></FormattedMessage>
+                                        <span><FormattedMessage id="banner.child1"></FormattedMessage></span>
 
-                        </div>
+                                    </div>
+                                </div>
+                                <div className='option-child'>
+                                    <div className='icon-child'>
+                                        <FontAwesomeIcon icon={faMobile} />
+                                    </div>
 
-                        <div className='search'>
-                            <section className='search-container'>
-                                <label className='search-field'>
-                                    <FontAwesomeIcon icon={faSearch} />
-                                    <input type='text'
-                                        className='search-input'
-                                        placeholder={LanguageUtils.getMessageByKey("banner.search-placeholder", language)}
-                                    />
-                                </label>
+                                    <div className='text-child'>
+                                        <span><FormattedMessage id="banner.child2"></FormattedMessage></span>
 
-                            </section>
+                                    </div>
+                                </div>
+                                <div className='option-child'>
+                                    <div className='icon-child'>
+                                        <FontAwesomeIcon icon={faBed} />
+                                    </div>
+                                    <div className='text-child'>
+                                        <span><FormattedMessage id="banner.child3"></FormattedMessage></span>
 
+                                    </div>
+                                </div>
+                                <div className='option-child'>
+                                    <div className='icon-child'>
+                                        <FontAwesomeIcon icon={faMedkit} />
+                                    </div>
+                                    <div className='text-child'>
+                                        <span><FormattedMessage id="banner.child4"></FormattedMessage></span>
+
+                                    </div>
+                                </div>
+                                <div className='option-child'>
+                                    <div className='icon-child'>
+                                        <i className='far fa-comments' />
+                                    </div>
+                                    <div className='text-child'>
+                                        <span><FormattedMessage id="banner.child5"></FormattedMessage></span>
+
+                                    </div>
+                                </div>
+                                <div className='option-child'>
+                                    <div className='icon-child'>
+                                        <FontAwesomeIcon icon={faTooth} />
+                                    </div>
+                                    <div className='text-child'>
+                                        <span><FormattedMessage id="banner.child6"></FormattedMessage></span>
+
+                                    </div>
+                                </div>
+                            </div>
 
                         </div>
                     </div>
-                    <div className='content-down'>
-                        <div className='option'>
-                            <div className='option-child'>
-                                <div className='icon-child'>
-                                    <FontAwesomeIcon icon={faHospital} />
-                                </div>
-                                <div className='text-child'>
-
-                                    <span><FormattedMessage id="banner.child1"></FormattedMessage></span>
-
-                                </div>
-                            </div>
-                            <div className='option-child'>
-                                <div className='icon-child'>
-                                    <FontAwesomeIcon icon={faMobile} />
-                                </div>
-
-                                <div className='text-child'>
-                                    <span><FormattedMessage id="banner.child2"></FormattedMessage></span>
-
-                                </div>
-                            </div>
-                            <div className='option-child'>
-                                <div className='icon-child'>
-                                    <FontAwesomeIcon icon={faBed} />
-                                </div>
-                                <div className='text-child'>
-                                    <span><FormattedMessage id="banner.child3"></FormattedMessage></span>
-
-                                </div>
-                            </div>
-                            <div className='option-child'>
-                                <div className='icon-child'>
-                                    <FontAwesomeIcon icon={faMedkit} />
-                                </div>
-                                <div className='text-child'>
-                                    <span><FormattedMessage id="banner.child4"></FormattedMessage></span>
-
-                                </div>
-                            </div>
-                            <div className='option-child'>
-                                <div className='icon-child'>
-                                    <i className='far fa-comments' />
-                                </div>
-                                <div className='text-child'>
-                                    <span><FormattedMessage id="banner.child5"></FormattedMessage></span>
-
-                                </div>
-                            </div>
-                            <div className='option-child'>
-                                <div className='icon-child'>
-                                    <FontAwesomeIcon icon={faTooth} />
-                                </div>
-                                <div className='text-child'>
-                                    <span><FormattedMessage id="banner.child6"></FormattedMessage></span>
-
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
+                }
             </React.Fragment >
         );
     }
-
 }
 
 const mapStateToProps = state => {
@@ -205,4 +205,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(homeHeader);
+export default connect(mapStateToProps, mapDispatchToProps)(HomeHeader);
