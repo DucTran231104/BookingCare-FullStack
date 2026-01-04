@@ -78,5 +78,12 @@
         "expert": "Chuyên gia y tế hàng đầu",
         "handbook": "Sổ tay sức khỏe",
         "more-info": "Xem thêm"
+    },
+    "manage-schedule": {
+        "title": "Quản lý lịch khám của bác sĩ",
+        "select-doctor": "Chọn bác sĩ",
+        "select-date": "Chọn ngày",
+        "save-info": "Lưu thông tin",
+        "select-time": "Chọn thời gian"
     }
 }

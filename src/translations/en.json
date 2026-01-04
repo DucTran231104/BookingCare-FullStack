@@ -78,5 +78,12 @@
         "expert": "Experienced Expert",
         "handbook": "Health Handbook",
         "more-info": "More Info"
+    },
+    "manage-schedule": {
+        "title": "Manage Doctor's Schedule",
+        "select-doctor": "Select doctor",
+        "select-date": "Select date",
+        "save-info": "Save info",
+        "select-time": "Select time"
     }
 }

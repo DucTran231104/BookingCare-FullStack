@@ -74,7 +74,6 @@ class ManageDoctor extends Component {
                 hasOldData: false
             })
         }
-        console.log('check res', res);
     };
     handleSaveContentMarkdown = () => {
         let { hasOldData } = this.state;
@@ -118,8 +117,6 @@ class ManageDoctor extends Component {
                 result.push(object)
             })
         }
-
-
         return result;
     }
     render() {
