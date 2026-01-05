@@ -13,7 +13,8 @@ class DoctorSchedule extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            allDays: []
+            allDays: [],
+            allAvailableTime: []
         }
     }
     async componentDidMount() {
@@ -29,11 +30,14 @@ class DoctorSchedule extends Component {
             let date = moment(new Date()).add(i, 'days');
             if (language === LANGUAGES.VI) {
                 //object.label = moment(new Date()).format('dddd DD/MM');
-                object.label = date.format('dddd DD/MM');
+                let labelVi = date.format('dddd DD/MM');
+                object.label = this.capitalizeFirstLetter(labelVi)
+
             }
             else {
                 //object.label = moment(new Date()).locale('en').format("ddd DD/MM");
-                object.label = date.locale('en').format("ddd DD/MM");
+                let labelEn = date.locale('en').format("ddd DD/MM");
+                object.label = this.capitalizeFirstLetter(labelEn)
             }
             //object.value = moment(new Date()).add(i, 'days').startOf('day').valueOf();
             object.value = date.startOf('day').valueOf();
@@ -57,18 +61,26 @@ class DoctorSchedule extends Component {
             let doctorId = this.props.DetailDoctorFromParent;
             let date = event.target.value
             let response = await getScheduleDoctorByDate(doctorId, date);
+            if (response && response.errCode === 0) {
+                this.setState({
+                    allAvailableTime: response.data ? response.data : []
+                })
+            }
             console.log('check responsive:', response)
         }
     }
-
+    capitalizeFirstLetter(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    }
     render() {
 
-        let { allDays } = this.state;
+        let { allDays, allAvailableTime } = this.state;
         console.log("check allDays:", this.state)
+        let { language } = this.props
 
         return (
             <React.Fragment>
-                <div className="schedule-doctor-container">
+                <div className="doctor-schedule-container">
                     <div className="all-schedule">
                         <select
                             onChange={(event) => this.handleOnchangeSelect(event)}
@@ -87,7 +99,23 @@ class DoctorSchedule extends Component {
                         </select>
                     </div>
                     <div className='all-available-time'>
+                        <div className='text-calendar'>
+                            <i className="fas fa-calendar-alt"> <span>Lịch khám</span></i>
+                        </div>
+                        <div className='time-content'>
+                            {allAvailableTime && allAvailableTime.length > 0 ?
+                                allAvailableTime.map((item, index) => {
+                                    let timeDisplay = language === LANGUAGES.VI ? item.timeTypeData.valueVi : item.timeTypeData.valueEn
+                                    // let timeTypeData
+                                    return (
+                                        <button key={index}>{timeDisplay}</button>
 
+                                    )
+                                })
+                                :
+                                <div>Bác sĩ không có lịch hẹn trong thời gian này, vui lòng chọn thời gian khác !!</div>
+                            }
+                        </div>
                     </div>
 
                 </div>

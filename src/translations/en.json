@@ -9,7 +9,8 @@
         "medical-examination-package": "Checkup package",
         "general-health-check": "General health check",
         "support": "support",
-        "welcome": "Welcome"
+        "welcome": "Welcome",
+        "specialty": "Specialty"
     },
     "banner": {
         "flatform": "Medical facility platform",
