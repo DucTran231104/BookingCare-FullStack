@@ -92,5 +92,13 @@
         "select-date": "Select date",
         "save-info": "Save info",
         "select-time": "Select time"
+    },
+    "patient": {
+        "detail-doctor": {
+            "schedule": "Schedule",
+            "no-schedule": "The doctor is unavailable during this time, please choose another time....!!",
+            "choose": "Choose ",
+            "book-free": " and book free"
+        }
     }
 }

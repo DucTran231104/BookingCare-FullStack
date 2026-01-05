@@ -91,5 +91,13 @@
         "select-date": "Chọn ngày",
         "save-info": "Lưu thông tin",
         "select-time": "Chọn thời gian"
+    },
+    "patient": {
+        "detail-doctor": {
+            "schedule": "Lịch Khám",
+            "no-schedule": "Bác sĩ không có lịch hẹn trong thời gian này, vui lòng chọn thời gian khác....!!",
+            "choose": "Chọn ",
+            "book-free": " và chọn miễn phí"
+        }
     }
 }
