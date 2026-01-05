@@ -9,8 +9,6 @@ import { toast } from 'react-toastify';
 import moment from 'moment';
 import _ from 'lodash';
 import { saveBulkScheduleDoctor } from '../../../services/userService';
-
-
 import Select from 'react-select';
 import { range } from 'lodash';
 
