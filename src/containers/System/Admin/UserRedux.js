@@ -172,6 +172,7 @@ class UserRedux extends Component {
                 avatar: this.state.avatar
             })
         }
+        console.log('check state save user:', this.state);
     }
     onChangeInput = (event, id) => {
         let copyState = { ...this.state }

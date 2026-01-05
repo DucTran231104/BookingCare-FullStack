@@ -79,6 +79,12 @@
         "handbook": "Sổ tay sức khỏe",
         "more-info": "Xem thêm"
     },
+    "manage-doctor": {
+        "doctor-information": "Thông tin bác sĩ",
+        "select-doctor": "Chọn bác sĩ",
+        "info-intro": "Giới thiệu thông tin",
+        "save-info": "Lưu thông tin"
+    },
     "manage-schedule": {
         "title": "Quản lý lịch khám của bác sĩ",
         "select-doctor": "Chọn bác sĩ",

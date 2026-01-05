@@ -10,6 +10,7 @@ import Select from 'react-select';
 import { LANGUAGES, CRUD_ACTIONS } from '../../../utils';
 import { getAllDoctors } from '../../../services/userService';
 import { getDetailInfoDoctorService } from '../../../services/userService';
+import { FormattedMessage, injectIntl } from 'react-intl';
 import { has } from 'lodash';
 
 
@@ -124,11 +125,11 @@ class ManageDoctor extends Component {
         return (
             <div className='manage-doctor-container'>
                 <div className='manage-doctor-title'>
-                    Tao thong tin bac si
+                    <FormattedMessage id="manage-doctor.doctor-information" />
                 </div>
                 <div className='more-info'>
                     <div className='content-left form-group'>
-                        <label>Chon bac si:</label>
+                        <label><FormattedMessage id="manage-doctor.select-doctor" /></label>
                         <Select
                             value={this.state.selectedDoctor}
                             onChange={this.handleChangeSelect}
@@ -136,12 +137,11 @@ class ManageDoctor extends Component {
                         />
                     </div>
                     <div className='content-right form-group'>
-                        <label>Thong tin gioi thieu:</label>
+                        <label><FormattedMessage id="manage-doctor.info-intro" /></label>
                         <textarea className='form-control  ' row="4"
                             onChange={(event) => this.handleOnChangeDescription(event)}
                             value={this.state.description}
                         >
-                            aaaaaaaaaaaaaaa
                         </textarea>
                     </div>
 
