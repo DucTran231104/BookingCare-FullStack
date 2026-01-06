@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import './ManageSchedule.scss';
 import { FormattedMessage } from 'react-intl';
 import * as actions from '../../../store/actions';
-import { LANGUAGES, dateFormat } from '../../../utils';
+import { LANGUAGES, dateFormat, USER_ROLE } from '../../../utils';
 import DatePicker from '../../../components/Input/DatePicker';
 import { toast } from 'react-toastify';
 import moment from 'moment';
@@ -31,12 +31,34 @@ class ManageSchedule extends Component {
         this.props.fetchAllScheduleTime();
     }
     componentDidUpdate(prevProps, prevStates, snapshot) {
-        if (prevProps.allDoctors !== this.props.allDoctors) {
+        if (prevProps.allDoctors !== this.props.allDoctors || prevProps.language !== this.props.language) {
             let dataSelect = this.buildDataInputSelect(this.props.allDoctors);
 
-            this.setState({
+            // Mặc định danh sách bác sĩ
+            let newState = {
                 listDoctors: dataSelect
-            })
+            };
+
+            // Nếu là bác sĩ (R2) thì tự động chọn và khóa tên bác sĩ đó
+            const { userInfo } = this.props;
+            if (userInfo && userInfo.roleId === USER_ROLE.DOCTOR && this.props.allDoctors) {
+                const currentDoctor = this.props.allDoctors.find(
+                    (item) => item.email === userInfo.email
+                );
+                if (currentDoctor) {
+                    const labelEn = `${currentDoctor.lastName} ${currentDoctor.firstName}`;
+                    const labelVi = `${currentDoctor.firstName} ${currentDoctor.lastName}`;
+                    const doctorOption = {
+                        value: currentDoctor.id,
+                        label: this.props.language === LANGUAGES.VI ? labelVi : labelEn
+                    };
+                    newState.selectedDoctor = doctorOption;
+                    // Chỉ hiển thị đúng bác sĩ hiện tại trong dropdown
+                    newState.listDoctors = [doctorOption];
+                }
+            }
+
+            this.setState(newState);
         }
         if (prevProps.allScheduleTime !== this.props.allScheduleTime) {
             let data = this.props.allScheduleTime;
@@ -159,6 +181,8 @@ class ManageSchedule extends Component {
                                 value={this.state.selectedDoctor}
                                 onChange={this.handleChangeSelect}
                                 options={this.state.listDoctors}
+                                // Nếu là bác sĩ thì khóa select (không cho đổi sang bác sĩ khác)
+                                isDisabled={this.props.userInfo && this.props.userInfo.roleId === USER_ROLE.DOCTOR}
                             />
                         </div>
                         <div className='col-6'>
@@ -206,6 +230,7 @@ const mapStateToProps = state => {
         allDoctors: state.admin.allDoctors,
         allScheduleTime: state.admin.allScheduleTime,
         language: state.app.language,
+        userInfo: state.user.userInfo,
 
     };
 };
