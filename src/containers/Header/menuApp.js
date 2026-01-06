@@ -52,11 +52,18 @@ export const adminMenu = [
 
 export const doctorMenu = [
     {
-        name: 'menu.admin.manage-users', menus: [{
-            //quan ly ke hoac kham benh
-
-            name: 'menu.doctor.manage-schedule', link: '/doctor/manage-schedule'
-        }
+        name: 'menu.admin.manage-users',
+        menus: [
+            {
+                // Quản lý thông tin bác sĩ (trang cấu hình hồ sơ bác sĩ)
+                name: 'menu.admin.manage-doctors',
+                link: '/system/doctor-manage'
+            },
+            {
+                // Quản lý lịch khám của bác sĩ
+                name: 'menu.doctor.manage-schedule',
+                link: '/doctor/manage-schedule'
+            }
         ]
     }
 ];

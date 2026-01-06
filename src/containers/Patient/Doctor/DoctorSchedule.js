@@ -5,8 +5,10 @@ import Select from 'react-select';
 import moment from 'moment';
 import localization from 'moment/locale/vi';
 import { LANGUAGES } from '../../../utils';
-import { getScheduleDoctorByDate } from '../../../services/userService';
+import { getScheduleDoctorByDate, sendBookingEmail } from '../../../services/userService';
 import { FormattedMessage, injectIntl } from 'react-intl';
+import BookingModal from '../../../components/BookingModal/BookingModal';
+import { toast } from 'react-toastify';
 
 
 
@@ -16,7 +18,10 @@ class DoctorSchedule extends Component {
         super(props);
         this.state = {
             allDays: [],
-            allAvailableTime: []
+            allAvailableTime: [],
+            isModalOpen: false,
+            selectedTime: null,
+            selectedDate: null
         }
     }
     async componentDidMount() {
@@ -85,7 +90,8 @@ class DoctorSchedule extends Component {
             let response = await getScheduleDoctorByDate(doctorId, date);
             if (response && response.errCode === 0) {
                 this.setState({
-                    allAvailableTime: response.data ? response.data : []
+                    allAvailableTime: response.data ? response.data : [],
+                    selectedDate: date
                 })
             }
         }
@@ -93,11 +99,49 @@ class DoctorSchedule extends Component {
     capitalizeFirstLetter(string) {
         return string.charAt(0).toUpperCase() + string.slice(1);
     }
+
+    handleClickTime = (timeItem, date) => {
+        let { language } = this.props;
+        let timeDisplay = language === LANGUAGES.VI ? timeItem.timeTypeData.valueVi : timeItem.timeTypeData.valueEn;
+
+        this.setState({
+            isModalOpen: true,
+            selectedTime: {
+                ...timeItem,
+                timeDisplay: timeDisplay
+            },
+            selectedDate: date
+        });
+    }
+
+    handleCloseModal = () => {
+        this.setState({
+            isModalOpen: false,
+            selectedTime: null,
+            selectedDate: null
+        });
+    }
+
+    handleConfirmBooking = async (bookingData) => {
+        try {
+            let response = await sendBookingEmail(bookingData);
+            if (response && response.errCode === 0) {
+                toast.success("Đặt lịch thành công! Email đã được gửi đến bác sĩ.");
+                this.handleCloseModal();
+            } else {
+                toast.error(response.errMessage || "Có lỗi xảy ra khi đặt lịch!");
+            }
+        } catch (error) {
+            console.log('Error booking:', error);
+            toast.error("Có lỗi xảy ra khi đặt lịch!");
+        }
+    }
     render() {
 
-        let { allDays, allAvailableTime } = this.state;
+        let { allDays, allAvailableTime, isModalOpen, selectedTime, selectedDate } = this.state;
         console.log("check allDays:", this.state)
-        let { language } = this.props
+        let { language, DetailDoctorFromParent } = this.props
+        let currentSelectedDate = allDays.length > 0 ? allDays[0].value : null;
 
         return (
             <React.Fragment>
@@ -129,10 +173,13 @@ class DoctorSchedule extends Component {
                                     <div className='time-content-btns'>
                                         {allAvailableTime.map((item, index) => {
                                             let timeDisplay = language === LANGUAGES.VI ? item.timeTypeData.valueVi : item.timeTypeData.valueEn
-                                            // let timeTypeData
+                                            let selectedDateValue = this.state.selectedDate || (allDays.length > 0 ? allDays[0].value : null);
                                             return (
-                                                <button key={index}
-                                                    className={language === LANGUAGES.VI ? 'btn-vi' : 'btn-en'}>
+                                                <button
+                                                    key={index}
+                                                    className={language === LANGUAGES.VI ? 'btn-vi' : 'btn-en'}
+                                                    onClick={() => this.handleClickTime(item, selectedDateValue)}
+                                                >
                                                     {timeDisplay}
                                                 </button>
 
@@ -156,6 +203,14 @@ class DoctorSchedule extends Component {
                     </div>
 
                 </div>
+                <BookingModal
+                    isOpen={isModalOpen}
+                    selectedTime={selectedTime}
+                    doctorId={DetailDoctorFromParent}
+                    selectedDate={selectedDate}
+                    onClose={this.handleCloseModal}
+                    onConfirm={this.handleConfirmBooking}
+                />
             </React.Fragment>
 
         );

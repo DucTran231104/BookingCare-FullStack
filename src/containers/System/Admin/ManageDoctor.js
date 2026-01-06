@@ -7,7 +7,7 @@ import MarkdownIt from 'markdown-it';
 import MdEditor from 'react-markdown-editor-lite';
 import 'react-markdown-editor-lite/lib/index.css';
 import Select from 'react-select';
-import { LANGUAGES, CRUD_ACTIONS } from '../../../utils';
+import { LANGUAGES, CRUD_ACTIONS, USER_ROLE } from '../../../utils';
 import { getAllDoctors } from '../../../services/userService';
 import { getDetailInfoDoctorService } from '../../../services/userService';
 import { FormattedMessage, injectIntl } from 'react-intl';
@@ -46,18 +46,37 @@ class ManageDoctor extends Component {
         // this.props.getAllRequiredDoctorInfo();
     }
     componentDidUpdate(prevProps, prevStates, snapshot) {
-        if (prevProps.allDoctors !== this.props.allDoctors) {
+        if (prevProps.allDoctors !== this.props.allDoctors || prevProps.language !== this.props.language) {
             let dataSelect = this.buildDataInputSelect(this.props.allDoctors);
-            this.setState({
+
+            // Mặc định danh sách bác sĩ
+            let newState = {
                 listDoctors: dataSelect
-            })
-        }
-        if (prevProps.language !== this.props.language) {
-            let dataSelect = this.buildDataInputSelect(this.props.allDoctors);
-            //  'USER' key value
-            this.setState({
-                listDoctors: dataSelect
-            })
+            };
+
+            const { userInfo } = this.props;
+
+            // Nếu là bác sĩ (R2) thì tự động chọn chính mình và khóa select
+            if (userInfo && userInfo.roleId === USER_ROLE.DOCTOR && this.props.allDoctors) {
+                const currentDoctor = this.props.allDoctors.find(
+                    (item) => item.email === userInfo.email
+                );
+                if (currentDoctor) {
+                    const labelEn = `${currentDoctor.lastName} ${currentDoctor.firstName}`;
+                    const labelVi = `${currentDoctor.firstName} ${currentDoctor.lastName}`;
+                    const doctorOption = {
+                        value: currentDoctor.id,
+                        label: this.props.language === LANGUAGES.VI ? labelVi : labelEn
+                    };
+                    newState.selectedDoctor = doctorOption;
+                    newState.listDoctors = [doctorOption];
+
+                    // Tự động load thông tin markdown của bác sĩ hiện tại
+                    this.handleChangeSelect(doctorOption);
+                }
+            }
+
+            this.setState(newState);
         }
         // if (prevProps.allRequiredDoctorInfo !== this.props.allRequiredDoctorInfo) {
         //     let { resPrice, resPayment, resProvince } = this.props.allRequiredDoctorInfo;
@@ -123,6 +142,7 @@ class ManageDoctor extends Component {
                 hasOldData: false
             })
         }
+
     }
     handleOnChangeDescription = (event) => {
         this.setState({
@@ -147,6 +167,7 @@ class ManageDoctor extends Component {
     }
     render() {
         let { hasOldData } = this.state;
+        console.log('check state:', this.state)
         return (
             <div className='manage-doctor-container'>
                 <div className='manage-doctor-title'>
@@ -160,6 +181,8 @@ class ManageDoctor extends Component {
                             onChange={this.handleChangeSelect}
                             options={this.state.listDoctors}
                             placeholder='Chon Bac si'
+                            // Nếu là bác sĩ thì khóa select (chỉ cho phép sửa thông tin của chính mình)
+                            isDisabled={this.props.userInfo && this.props.userInfo.roleId === USER_ROLE.DOCTOR}
                         />
                     </div>
                     <div className='content-right form-group'>
@@ -234,6 +257,7 @@ const mapStateToProps = state => {
     return {
         allDoctors: state.admin.allDoctors,
         language: state.app.language,
+        userInfo: state.user.userInfo,
         // allRequiredDoctorInfo: state.admin.allRequiredDoctorInfo,
 
     };
