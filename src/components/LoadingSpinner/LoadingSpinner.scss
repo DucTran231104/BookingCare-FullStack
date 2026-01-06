@@ -1,0 +1,117 @@
+.loading-spinner-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 9999;
+}
+
+.loading-spinner {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+}
+
+.spinner {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    animation: spin 1.2s linear infinite;
+}
+
+.spinner .bar {
+    position: absolute;
+    width: 6px;
+    height: 20px;
+    background: #ffffff;
+    border-radius: 3px;
+    left: 50%;
+    top: 50%;
+    transform-origin: 0 40px;
+    opacity: 0.3;
+}
+
+.spinner .bar:nth-child(1) {
+    transform: translate(-50%, -50%) rotate(0deg);
+    animation: fade 1.2s linear infinite;
+    animation-delay: 0s;
+}
+
+.spinner .bar:nth-child(2) {
+    transform: translate(-50%, -50%) rotate(45deg);
+    animation: fade 1.2s linear infinite;
+    animation-delay: 0.15s;
+}
+
+.spinner .bar:nth-child(3) {
+    transform: translate(-50%, -50%) rotate(90deg);
+    animation: fade 1.2s linear infinite;
+    animation-delay: 0.3s;
+}
+
+.spinner .bar:nth-child(4) {
+    transform: translate(-50%, -50%) rotate(135deg);
+    animation: fade 1.2s linear infinite;
+    animation-delay: 0.45s;
+}
+
+.spinner .bar:nth-child(5) {
+    transform: translate(-50%, -50%) rotate(180deg);
+    animation: fade 1.2s linear infinite;
+    animation-delay: 0.6s;
+}
+
+.spinner .bar:nth-child(6) {
+    transform: translate(-50%, -50%) rotate(225deg);
+    animation: fade 1.2s linear infinite;
+    animation-delay: 0.75s;
+}
+
+.spinner .bar:nth-child(7) {
+    transform: translate(-50%, -50%) rotate(270deg);
+    animation: fade 1.2s linear infinite;
+    animation-delay: 0.9s;
+}
+
+.spinner .bar:nth-child(8) {
+    transform: translate(-50%, -50%) rotate(315deg);
+    animation: fade 1.2s linear infinite;
+    animation-delay: 1.05s;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes fade {
+
+    0%,
+    100% {
+        opacity: 0.3;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+.loading-message {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+    margin-top: 20px;
+}

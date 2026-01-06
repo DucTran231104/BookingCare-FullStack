@@ -1,0 +1,106 @@
+{
+    "home-header": {
+        "speciality": "Medical speciality",
+        "search-doctor": "Find a doctor by speciality",
+        "medical-facility": "Medical facility",
+        "choose-hospital": "Choose hospital",
+        "doctor": "Doctor",
+        "choose-doctor": "Choose doctor",
+        "medical-examination-package": "Checkup package",
+        "general-health-check": "General health check",
+        "support": "support",
+        "welcome": "Welcome",
+        "specialty": "Specialty"
+    },
+    "banner": {
+        "flatform": "Medical facility platform",
+        "health-care": "Comprehensive health care",
+        "search-placeholder": "Search doctors, specialties, hospitals",
+        "child1": "Specialist examination",
+        "child2": "Remote examination",
+        "child3": "General examination",
+        "child4": "Medical Test",
+        "child5": "Mental health",
+        "child6": "Dental check-up"
+    },
+    "menu": {
+        "system": {
+            "header": "System",
+            "system-administrator": {
+                "header": "System Administrator",
+                "user-manage": "User manage",
+                "product-manage": "Package manage",
+                "register-package-group-or-account": "Register service package for group/account",
+                "user-redux": "User manage Redux"
+            },
+            "system-parameter": {
+                "header": "System-parameter"
+            }
+        },
+        "admin": {
+            "manage-users": " User",
+            "manage-doctors": "Manage Doctor",
+            "manage-admin": "Manage Admin",
+            "crud": "CRUD user",
+            "crud-redux": "CRUD Redux",
+            "clinic": "Clinic",
+            "manage-clinic": "Manage Clinic",
+            "specialty": "Specialty",
+            "manage-specialty": "Manage specialty",
+            "handbook": "Handbook",
+            "manage-handbook": "Manage Handbook"
+        },
+        "doctor": {
+            "manage-schedule": "Manage Doctor's schedule"
+        }
+    },
+    "manage-user": {
+        "add": "Add new User",
+        "email": "email",
+        "password": "Password",
+        "first-name": "first Name",
+        "last-name": "Last Name",
+        "phone-number": "Phone number",
+        "address": "Address",
+        "gender": "Gender",
+        "male": "Male",
+        "female": "FeMale",
+        "position": "Position",
+        "Choose": "Choose",
+        "roleId": "RoleId",
+        "image": "Avatar",
+        "save": "Save User",
+        "edit": "Edit User",
+        "email-invalid": "Invalid email format! Please enter a valid email (e.g., example@gmail.com)"
+    },
+    "home-page": {
+        "outstanding-doctor": "Outstanding Doctor",
+        "medical-facility": "Outstanding Medical Facility",
+        "expert": "Experienced Expert",
+        "handbook": "Health Handbook",
+        "more-info": "More Info"
+    },
+    "manage-schedule": {
+        "title": "Manage Doctor's Schedule",
+        "select-doctor": "Select doctor",
+        "select-date": "Select date",
+        "save-info": "Save info",
+        "select-time": "Select time"
+    },
+    "patient": {
+        "detail-doctor": {
+            "schedule": "Schedule",
+            "no-schedule": "The doctor is unavailable during this time, please choose another time....!!",
+            "choose": "Choose ",
+            "book-free": " and book free"
+        }
+    },
+    "admin": {
+        "manage-doctor": {
+            "title": "Manage Doctor's Schedule",
+            "select-doctor": "Select Doctor",
+            "info-intro": "Introduction Information",
+            "save-info": "Save Information"
+        }
+    }
+}

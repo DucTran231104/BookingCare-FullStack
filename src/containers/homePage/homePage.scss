@@ -1,0 +1,206 @@
+//reset slick slider select
+.slick-prev {
+    border: 2px solid #d7d7d7 !important;
+    left: -10px !important;
+    background-color: white !important;
+
+    z-index: 1000 !important;
+    height: 48px !important;
+    width: 44px !important;
+
+    &:hover {
+        background-color: #d7d7d7 !important;
+    }
+}
+
+.slick-next {
+    border: 2px solid #d7d7d7 !important;
+    right: -10px !important;
+    background-color: white !important;
+    height: 48px !important;
+    width: 44px !important;
+
+    &:hover {
+        background-color: #d7d7d7 !important;
+    }
+}
+
+.slick-prev:before,
+.slick-next:before {
+    font-family: fontAwesome !important;
+    color: red !important;
+}
+
+.slick-disabled {
+    display: none !important;
+}
+
+
+
+.section-share {
+    padding-bottom: 60px;
+
+    .section-body {
+        .slick-list {
+            margin: 0 -5px;
+        }
+
+        .slick-slide>div {
+            padding: 0 5px;
+        }
+
+        .section-customize {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            &.customize-outstanding-doctor {
+                border: 1px solid #bbbbbb;
+                padding: 20px;
+                cursor: pointer;
+
+            }
+
+            .bg-img {
+                width: 100%;
+                height: 0;
+                padding-top: 75%;
+                background-color: #eee;
+                overflow: hidden;
+                border-radius: 4px;
+
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+
+                &.section-img-specialty {
+                    background-image: url('../../assets/Specialty/CoXuongKhop.jpg');
+                }
+
+                &.section-img-medical-facility {
+                    background-image: url('../../assets/MedicalFacility/BenhVienBachMai.jpg');
+                }
+
+                &.section-img-outstanding-doctor {
+                    // background-image: url('../../assets/outstandingDoctor/image.png');
+                    width: 120px;
+                    height: 120px;
+                    padding-top: 0;
+                    border-radius: 50%;
+                }
+
+                &.section-img-handbook {
+                    background-image: url('../../assets/handBook/image.png');
+                    background-size: 100% auto;
+                    background-color: white;
+                }
+            }
+        }
+    }
+
+
+
+    &.section-specialty {
+        position: relative;
+        overflow: visible;
+        background: #eeeeee;
+    }
+
+    &.section-outstanding-doctor {
+        position: relative;
+        overflow: visible;
+        background: #eeeeee;
+    }
+
+    &.section-about {
+        height: 500px;
+        padding: 0 100px;
+        border-top: 2px solid #f5f5f5;
+        border-bottom: 2px solid #f5f5f5;
+
+        .section-about-header {
+            padding: 20px 10px;
+            font-size: 22px;
+            font-weight: 600;
+        }
+
+        .section-about-content {
+            display: flex;
+            gap: 15px;
+            width: 100%;
+
+            .content-left {
+                width: 60%;
+            }
+
+            .content-right {
+                width: 40%;
+
+                p {
+                    text-align: justify;
+                    font-style: italic;
+                    padding-top: 15px;
+                }
+            }
+
+        }
+    }
+
+
+
+    .section-container {
+        margin: 0 100px;
+        display: flex;
+        flex-direction: column;
+
+        .section-header {
+            height: 60px;
+            margin-bottom: 30px;
+            padding-top: 30px;
+
+            .title-section {
+                font-weight: bold;
+                font-size: 22px;
+            }
+
+            .btn-section {
+                float: right;
+                display: block;
+                padding: 5px 10px;
+                border: none;
+                outline: none;
+                font-size: 15px;
+                cursor: pointer;
+                color: black;
+                background: #f5f5f5;
+                text-transform: uppercase;
+
+
+                &:hover {
+                    color: white;
+                    background: #4a90e2;
+                }
+            }
+        }
+    }
+}
+
+.section-outstanding-doctor {
+    .outer-bg {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+}
+
+.section-home-footer {
+    text-align: center;
+    height: 60px;
+
+    a {
+        text-decoration: unset;
+    }
+
+
+}

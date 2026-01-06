@@ -1,0 +1,105 @@
+{
+    "home-header": {
+        "specialty": "Chuyên khoa",
+        "search-doctor": "Tìm bác sĩ theo chuyên khoa",
+        "medical-facility": "Cơ sở y tế",
+        "choose-hospital": "Chọn bệnh viện khám",
+        "doctor": "Bác sĩ",
+        "choose-doctor": "Chọn bác sĩ giỏi",
+        "medical-examination-package": "Gói khám bệnh",
+        "general-health-check": "Khám sức khỏe tổng quát",
+        "support": "Hỗ trợ",
+        "welcome": "Xin chào"
+    },
+    "banner": {
+        "flatform": "Nền tảng y tế",
+        "health-care": "Chăm sóc sức khỏe toàn diện",
+        "search-placeholder": "Tìm kiếm bác sĩ, chuyên khoa, bệnh viện",
+        "child1": "Khám chuyên khoa",
+        "child2": "Khám từ xa",
+        "child3": "Khám tổng quát",
+        "child4": "Xét nghiệm y học",
+        "child5": "Sức khỏe tinh thần",
+        "child6": "Khám nha khoa"
+    },
+    "menu": {
+        "system": {
+            "header": "Hệ thống",
+            "system-administrator": {
+                "header": "Quản trị hệ thống",
+                "user-manage": "Quản lý người sử dụng",
+                "product-manage": "Quản lý gói",
+                "register-package-group-or-account": "Đăng ký gói cho nhóm KH/tài khoản",
+                "user-redux": "Quản lý người dùng Redux"
+            },
+            "system-parameter": {
+                "header": "Tham số hệ thống"
+            }
+        },
+        "admin": {
+            "manage-users": " người dùng",
+            "manage-doctors": "Quản lý bác sĩ",
+            "manage-admin": "Quản lý admin",
+            "crud": "CRUD user",
+            "crud-redux": "CRUD Redux",
+            "clinic": "Phòng khám",
+            "manage-clinic": "Quản lý phòng khám",
+            "specialty": "Chuyên kkhoa",
+            "manage-specialty": "Quản lý chuyên khoa",
+            "handbook": "Bài đăng",
+            "manage-handbook": "Quản lý bài đăng"
+        },
+        "doctor": {
+            "manage-schedule": "Quản lý lịch khám của bác sĩ"
+        }
+    },
+    "manage-user": {
+        "add": "Thêm mới người dùng",
+        "email": "email",
+        "password": "Mật Khẩu",
+        "first-name": "Họ",
+        "last-name": "Tên",
+        "phone-number": "Số điện thoại",
+        "address": "địa chỉ",
+        "gender": "giới tính",
+        "male": "Nam",
+        "female": "Nữ",
+        "position": "Vị trí",
+        "Choose": "chọn",
+        "roleId": "vai trò",
+        "image": "Ảnh đại diện",
+        "save": "Lưu User",
+        "edit": "Sửa User",
+        "email-invalid": "Email không đúng định dạng! Vui lòng nhập email hợp lệ (ví dụ: example@gmail.com)"
+    },
+    "home-page": {
+        "outstanding-doctor": "Bác sĩ nổi bật",
+        "medical-facility": "Cơ sở y tế nổi bật",
+        "expert": "Chuyên gia y tế hàng đầu",
+        "handbook": "Sổ tay sức khỏe",
+        "more-info": "Xem thêm"
+    },
+    "manage-schedule": {
+        "title": "Quản lý lịch khám của bác sĩ",
+        "select-doctor": "Chọn bác sĩ",
+        "select-date": "Chọn ngày",
+        "save-info": "Lưu thông tin",
+        "select-time": "Chọn thời gian"
+    },
+    "patient": {
+        "detail-doctor": {
+            "schedule": "Lịch Khám",
+            "no-schedule": "Bác sĩ không có lịch hẹn trong thời gian này, vui lòng chọn thời gian khác....!!",
+            "choose": "Chọn ",
+            "book-free": " và chọn miễn phí"
+        }
+    },
+    "admin": {
+        "manage-doctor": {
+            "title": "Quản lý lịch khám của bác sĩ",
+            "select-doctor": "Chọn bác sĩ",
+            "info-intro": "Giới thiệu thông tin",
+            "save-info": "Lưu thông tin"
+        }
+    }
+}
