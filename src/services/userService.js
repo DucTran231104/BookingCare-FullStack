@@ -54,6 +54,10 @@ const getScheduleDoctorByDate = (doctorId, date) => {
     return axios.get(`/api/get-schedule-doctors-by-date?doctorId=${doctorId}&date=${date}`)
 }
 
+const sendBookingEmail = (data) => {
+    return axios.post(`/api/send-booking-email`, data)
+}
+
 
 export {
     handleLoginApi,
@@ -68,4 +72,5 @@ export {
     getDetailInfoDoctorService,
     saveBulkScheduleDoctor,
     getScheduleDoctorByDate,
+    sendBookingEmail,
 }
