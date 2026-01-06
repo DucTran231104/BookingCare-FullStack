@@ -73,12 +73,6 @@
         "edit": "Edit User",
         "email-invalid": "Invalid email format! Please enter a valid email (e.g., example@gmail.com)"
     },
-    "manage-doctor": {
-        "doctor-information": "Doctor Information",
-        "select-doctor": "Select Doctor",
-        "info-intro": "Introduction Information",
-        "save-info": "Save Information"
-    },
     "home-page": {
         "outstanding-doctor": "Outstanding Doctor",
         "medical-facility": "Outstanding Medical Facility",
@@ -99,6 +93,14 @@
             "no-schedule": "The doctor is unavailable during this time, please choose another time....!!",
             "choose": "Choose ",
             "book-free": " and book free"
+        }
+    },
+    "admin": {
+        "manage-doctor": {
+            "title": "Manage Doctor's Schedule",
+            "select-doctor": "Select Doctor",
+            "info-intro": "Introduction Information",
+            "save-info": "Save Information"
         }
     }
 }
